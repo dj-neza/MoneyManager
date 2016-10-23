@@ -1,1 +1,3 @@
 # MoneyManager
+
+Web application to help people manage their incomes and expenses and save money at the same time. Anyone can have control over what they spend most of their money on, create budgets or saving plans. You can add different accounts, enter monthly payments and manage everything quickly and efficiently. Expenses are also divided into different categories and the application offers many visually apealing statistics so you can see what really empties your wallet. 
