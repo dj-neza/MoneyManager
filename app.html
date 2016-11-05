@@ -1,12 +1,36 @@
 <html>
   <head>
     <title>Money manager</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-    <script type="text/javascript" src="js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="script.js"></script>
   </head>
   <body bgcolor=white>
-  <div id="login">
-  	
-  </div>
+    <div id="row" align="center" style="height: 50px;">
+    	<div id="menu" style="float:left; display: inline-block;">MENU</div>
+      <div id="logoMini" style="display: inline-block;"><img src="lala.png" style="height: 50px;">Money Manager</div>
+      <div id="userStuff" align="right" style="float: right; display: inline-block;">USER</div>
+    </div>
+    <br><br>
+    <div align="center">
+      <div id="balance" class="color_bro" >Balance: 
+        <div id="current" style="display:inline-block;">400 $</div>
+        <div id="wallet" style="display:inline-block;">wallet</div>
+        <div id="card" style="display:inline-block;">card</div>
+        <div style="display:inline-block;"><button id="transactionButton">New transaction</button></div>
+      </div><br><br>
+      <div id="category">
+        <div id="exp" class="color_vio" style="display:inline-block; width: 20%; height: 30px; ">Expenses</div>
+        <div id="inc" class="color_dvio" style="display:inline-block; width: 20%; height: 27px; ">Incomes</div>
+        <div id="goal" class="color_dvio" style="display:inline-block; width: 20%; height: 27px; ">Goals</div>
+        <div id="stat" class="color_dvio" style="display:inline-block; width: 20%; height: 27px; ">Statistics</div>
+      </div>
+      <div id="content" class="color_vio" style="width: 81%; height: 220px; ">
+        <br>
+        <div id="expenses" class="color_lvio" style="display:inline-block; width: 48%; height: 180px; ">
+        </div>
+        <div id="expenseStats" class="color_lvio" style="display:inline-block; width:48%; height: 180px; "></div>
+        <br>
+      </div>
+    </div>
   </body>
 </html>

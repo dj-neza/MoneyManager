@@ -1,0 +1,21 @@
+body { margin-top: 20px; background:  #f5e5bc; color:  #220800; font-family: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif; }
+
+.neviden {
+    display: none !important;
+}
+
+.color_dvio {
+	background-color: #84739a;
+}
+.color_vio {
+	background-color: #cbb7c3; 
+}
+.color_lvio {
+	background-color: #e9dcd8; 
+}
+.color_yel {
+	background-color: #f5e5bc; 
+}
+.color_bro {
+	background-color: #ceb4a1; 
+}
