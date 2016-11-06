@@ -10,22 +10,28 @@
 		<h3>Money Manager</h3>
 	</div>
   	<div align="center">
-  		<div id="login" style="display: inline-block;">
-  			<h4>LOG-IN</h4><br>
-  			<form action="app.html">
-			  <label style="float: left;" for="email">E-mail: </label><input style="float: right;" type="text" name="email" required="required"><br>
-			  <label style="float: left;" for="password">Password: </label><input style="float: right;" type="password" name="password" required="required"><br><br><br>
+  		<div id="log-in" class="color_vio" style="display: inline-block; width: 30%;">
+  			<h4>LOG-IN</h4>
+  			<br><br>
+  			<form id="login" action="app.html" onsubmit="return logIn(this);">
+			  <label style="float: left;" for="email">E-mail: </label><input style="float: right;" type="text" id="email1" required="required">
+			  <br><br>
+			  <label style="float: left;" for="password">Password: </label><input style="float: right;" type="password" id="password1" required="required">
+			  <br><br><br><br>
 			  <input type="submit" value="Submit">
 			</form>
 	  	</div>
 	  	<div style="display: inline-block; width: 50px;"></div>
-	  	<div id="signup" style="display: inline-block;">
+	  	<div id="sign-up" class="color_vio" style="display: inline-block; width: 30%;">
 	  		<h4>SIGN-UP</h4>
-	  		<form action="app.html">
-			  <label style="float: left;" for="email">E-mail: </label><input style="float: right;" type="text" name="email" required="required"><br>
-			  <label style="float: left;" for="username">Username: </label><input style="float: right;" type="text" name="username" required="required"><br>
-			  <label style="float: left;" for="password">Password: </label><input style="float: right;" type="password" name="password" required="required"><br>
-			  <label style="float: left;" for="password2">Password confirmation: </label><input style="float: right;" type="password" name="password2" required="required"><br><br>
+	  		<form id="signup" action="app.html" onsubmit="return signUp(this);">
+			  <label style="float: left;" for="email">E-mail: </label><input style="float: right;" type="text" id="email2" required="required">
+			  <br><br>
+			  <label style="float: left;" for="username">Username: </label><input style="float: right;" type="text" id="username" required="required">
+			  <br><br>
+			  <label style="float: left;" for="password">Password: </label><input style="float: right;" type="password" id="password2" required="required">
+			  <br><br>
+			  <label style="float: left;" for="password2">Password confirmation: </label><input style="float: right;" type="password" id="password22" required="required"><br><br>
 			  <input type="submit" value="Submit">
 			</form>
 	  	</div>
