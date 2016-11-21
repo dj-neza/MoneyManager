@@ -1,9 +1,23 @@
-body {background:  #f5e5bc; color:  #220800; font-family: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif; }
-
+body { height: 100%; color:  #220800; font-family: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif; }
+html { 
+    background: url(ozadje.png) no-repeat center center fixed; 
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+/* display table */
+.forma  { display: table; }
+.p_forma { display: table-row;  }
+.l_forma, .i_forma { display: table-cell; }
+/* display other stuff */
 .neviden {
     display: none !important;
 }
-
+.inliner {
+	display: inline-block;
+}
+/* colors */
 .color_dvio, .neaktivn {
 	background-color: #84739a;
 }
@@ -19,11 +33,19 @@ body {background:  #f5e5bc; color:  #220800; font-family: "Open Sans", "Segoe UI
 .color_bro {
 	background-color: #ceb4a1; 
 }
-
+/* cursor stuff */
 .div_button, .div_buttonL {
 	cursor: pointer;
 }
-
+/* margins, paddings */
+.pad_r10 {
+	padding-right: 10px;
+}
+.mar_r20l20 {
+	margin-left: 20px;
+	margin-right: 20px;
+}
+/* toggle stuff */
 #toggle, #toggle2 {
 	z-index: 3;
 	position: fixed;
@@ -41,7 +63,6 @@ body {background:  #f5e5bc; color:  #220800; font-family: "Open Sans", "Segoe UI
 	right: 10px;
 	top: 0px;
 }
-
 #toggle span:after,
 #toggle span:before {
 	content: "";
@@ -56,7 +77,6 @@ body {background:  #f5e5bc; color:  #220800; font-family: "Open Sans", "Segoe UI
 	position: relative;
 	display: block;
 }
-
 #toggle span,
 #toggle span:after,
 #toggle span:before {

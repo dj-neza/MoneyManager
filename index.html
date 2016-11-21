@@ -4,36 +4,46 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="script.js"></script>
   </head>
-  <body bgcolor=white>
-	<div align="center">
-		<img src="lala.png" style="height: 100px;">
-		<h3>Money Manager</h3>
+  <body>
+	<div align="center" style="padding-top: 50px; padding-bottom: 50px;">
+		<img src="Logo.png" style="height: 100px;">
 	</div>
   	<div align="center">
-  		<div id="log-in" class="color_vio" style="display: inline-block; width: 30%;">
+  		<div id="log-in" class="color_vio inliner" style="width: 40%; height: 280px;">
   			<h4>LOG-IN</h4>
-  			<br><br>
-  			<form id="login" action="app.html" onsubmit="return logIn(this);">
-			  <label style="float: left;" for="email">E-mail: </label><input style="float: right;" type="text" id="email1" required="required">
-			  <br><br>
-			  <label style="float: left;" for="password">Password: </label><input style="float: right;" type="password" id="password1" required="required">
-			  <br><br><br><br>
-			  <input type="submit" value="Submit">
+  			<form id="login" class="forma" style="height: 60%;" action="app.html">
+				<p class="p_forma">
+					<label class="l_forma" for="email">E-mail: </label>
+					<input class="i_forma" type="text" id="email1" required="required">
+				</p>
+				<p class="p_forma" >
+					<label class="l_forma pad_r10" for="password">Password: </label>
+					<input class="i_forma" type="password" id="password1" required="required">
+				</p>
 			</form>
+			<div id="login_button" align="center" class="color_yel div_buttonL mar_r20l20">LOG IN</div>
 	  	</div>
-	  	<div style="display: inline-block; width: 50px;"></div>
-	  	<div id="sign-up" class="color_vio" style="display: inline-block; width: 30%;">
+	  	<div id="sign-up" class="color_vio inliner" style="width: 40%; height: 280px;">
 	  		<h4>SIGN-UP</h4>
-	  		<form id="signup" action="app.html" onsubmit="return signUp(this);">
-			  <label style="float: left;" for="email">E-mail: </label><input style="float: right;" type="text" id="email2" required="required">
-			  <br><br>
-			  <label style="float: left;" for="username">Username: </label><input style="float: right;" type="text" id="username" required="required">
-			  <br><br>
-			  <label style="float: left;" for="password">Password: </label><input style="float: right;" type="password" id="password2" required="required">
-			  <br><br>
-			  <label style="float: left;" for="password2">Password confirmation: </label><input style="float: right;" type="password" id="password22" required="required"><br><br>
-			  <input type="submit" value="Submit">
+	  		<form id="signup" class="forma" action="app.html" style="height: 60%;">
+				<p class="p_forma">
+					<label class="l_forma" for="email">E-mail: </label>
+					<input class="i_forma" type="text" id="email2" required="required">
+				</p>
+				<p class="p_forma">
+					<label class="l_forma" for="username">Username: </label>
+					<input class="i_forma" type="text" id="username" required="required">
+				</p>
+				<p class="p_forma">
+					<label class="l_forma" for="password">Password: </label>
+					<input class="i_forma"type="password" id="password2" required="required">
+				</p>
+				<p class="p_forma">
+					<label class="l_forma pad_r10" for="password2">Password confirmation: </label>
+					<input class="i_forma" type="password" id="password22" required="required">
+				</p>
 			</form>
+		    <div id="signup_button" align="center" class="color_yel div_buttonL mar_r20l20">SIGN UP</div>
 	  	</div>
   	</div>
   </body>

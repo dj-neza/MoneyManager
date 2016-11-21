@@ -13,7 +13,7 @@
         <div id="export" align="center" style="width: 95%; height: 25px; " class="color_lvio div_button">Export data</div><br>
         <div id="settings" align="center" style="width: 95%; height: 25px; " class="color_lvio div_button">Settings</div>
       </div>
-      <div id="logoMini" style="display: inline-block;"><img src="lala.png" style="height: 50px;">Money Manager</div>
+      <div id="logoMini" class="inliner" ><img src="Logo.png" style="height: 50px;"></div>
       <a href="#menu2" id="toggle2" class=""><img src="human.png" style="height: 100%; width: 100%;"></a>
       <div id="menu2" class="menu_toggle2">
         <div id="profile" align="center" style="width: 95%; height: 25px;" class="color_lvio div_button">Profile settings</div><br>
@@ -23,82 +23,81 @@
     <br><br>
     <div align="center">BALANCE
       <div id="balance" class="color_bro" style="height: 70px;" >
-        <div id="drop" style="display: inline-block;">Total  <img src="drop.png" style=""></div>
-        <div id="total" class="color_yel" style="margin-left: 10px; margin-top: 10px; display:inline-block; height: 50px; line-height: 50px; padding-left: 5px; padding-right: 5px;">400 $</div>
-        <div id="transaction" class="color_yel div_buttonL" style="display:inline-block; margin-right: 10px; margin-left: 10px; margin-top: 10px; margin-bottom: 10px; height: 50px; line-height: 50px; padding-left: 5px; padding-right: 5px;">New transaction</div>
+        <div id="drop" class="inliner">Total  <img src="drop.png" style=""></div>
+        <div id="total" class="color_yel inliner" style="margin-left: 10px; margin-top: 10px; height: 50px; line-height: 50px; padding-left: 5px; padding-right: 5px;">400 $</div>
+        <div id="transaction" class="color_yel div_buttonL inliner" style=" margin-right: 10px; margin-left: 10px; margin-top: 10px; margin-bottom: 10px; height: 50px; line-height: 50px; padding-left: 5px; padding-right: 5px;">New transaction</div>
       </div><br><br>
       <div id="category">
-        <div id="exp" class="aktiven div_button" style="display:inline-block; width: 20%; height: 30px; ">Expenses</div>
-        <div id="inc" class="neaktivn div_button" style="display:inline-block; width: 20%; height: 27px; ">Incomes</div>
-        <div id="goal" class="neaktivn div_button" style="display:inline-block; width: 20%; height: 27px; ">Goals</div>
-        <div id="stat" class="neaktivn div_button" style="display:inline-block; width: 20%; height: 27px; ">Statistics</div>
+        <a href="app.html"><div id="exp" class="aktiven div_button inliner" style="width: 20%; height: 30px; ">Expenses</div></a>
+        <a href="app2.html"><div id="inc" class="neaktivn div_button inliner" style="width: 20%; height: 27px; ">Incomes</div></a>
+        <div id="goal" class="neaktivn div_button inliner" style="width: 20%; height: 27px; ">Goals</div>
+        <div id="stat" class="neaktivn div_button inliner" style="width: 20%; height: 27px; ">Statistics</div>
       </div>
-      <div id="content" class="color_vio" style="width: 81%; height: 220px; ">
-        <br>
-        <div id="left" class="color_lvio" style="display:inline-block; width: 48%; height: 180px; ">
-          <div style="margin-top: 5px;">
-            <div id="dropdown1" class="color_dvio" style="width: 40%; display:inline-block;">All wallets <img src="drop.png" style=""></div>
-            <div id="dropdown2" class="color_dvio" style="width: 40%; display: inline-block;">All categories <img src="drop.png" style=""></div>
+      <div id="content" class="color_vio" style="width: 81%; height: 470px; padding-top: 10px;">
+        <div id="left" class="color_lvio" style="width: 98%; height: 220px; padding-top: 5px;">
+          <div style="width: 100%;">
+            <div id="dropdown1" class="color_dvio inliner" style="width: 40%;">All wallets <img src="drop.png" style=""></div>
+            <div id="dropdown2" class="color_dvio inliner" style="width: 40%;">All categories <img src="drop.png" style=""></div>
           </div>
-          <div align="center">
-            <div id="e1" class="color_vio" style="width: 80%; margin-top: 5px;">
-              <div style="display: inline-block; float:left;">Coffee with friends</div>
-              <div style="display:inline-block;">1.3$</div>
-              <div style="display:inline-block; float:right">20.1.2016</div>
-            </div>
-            <div id="e2" class="color_vio" style="width: 80%; margin-top: 5px;">
-              <div style="display: inline-block; float:left;">Groceries</div>
-              <div style="display:inline-block;">12$</div>
-              <div style="display:inline-block; float:right">2.4.2016</div>
-            </div>
-            <div id="e3" class="color_vio" style="width: 80%; margin-top: 5px;">
-              <div style="display: inline-block; float:left;">Lunch</div>
-              <div style="display:inline-block;">3.75$</div>
-              <div style="display:inline-block; float:right">1.2.2016</div>
-            </div>
-            <div id="e4" class="color_vio" style="width: 80%; margin-top: 5px;"">
-              <div style="display: inline-block; float:left;">Scarf and gloves</div>
-              <div style="display:inline-block;">19.99$</div>
-              <div style="display:inline-block; float:right">17.3.2016</div>
-            </div>
-            <div id="e5" class="color_vio" style="width: 80%; margin-top: 5px;">
-              <div style="display: inline-block; float:left;">Phone bill</div>
-              <div style="display:inline-block;">15.6$</div>
-              <div style="display:inline-block; float:right">30.5.2016</div>
-            </div>
+          <div align="center" class="forma" style="width: 80%;">
+            <p id="e1" class="color_vio p_forma" style="width: 80%; margin-top: 5px;">
+              <div class="i_forma" style="float:left;">Coffee with friends</div>
+              <div class="i_forma">1.3$</div>
+              <div class="i_forma" style="float:right">20.1.2016</div>
+            </p>
+            <p id="e2" class="color_vio p_forma" style="width: 80%; margin-top: 5px;">
+              <div class="i_forma" style="float:left;">Groceries</div>
+              <div class="i_forma">12$</div>
+              <div class="i_forma" style="float:right">2.4.2016</div>
+            </p>
+            <p id="e3" class="color_vio p_forma" style="width: 80%; margin-top: 5px;">
+              <div class="i_forma" style="float:left;">Lunch</div>
+              <div class="i_forma">3.75$</div>
+              <div class="i_forma" style="float:right">1.2.2016</div>
+            </p>
+            <p id="e4" class="color_vio p_forma" style="width: 80%; margin-top: 5px;"">
+              <div class="i_forma" style="float:left;">Scarf and gloves</div>
+              <div class="i_forma">19.99$</div>
+              <div class="i_forma" style="float:right">17.3.2016</div>
+            </p>
+            <p id="e5" class="color_vio p_forma" style="width: 80%; margin-top: 5px;">
+              <div class="i_forma" style="float:left;">Phone bill</div>
+              <div class="i_forma">15.6$</div>
+              <div class="i_forma" style="float:right">30.5.2016</div>
+            </p>
           </div><br>
           <div align="center" class="color_bro" style="padding-left: 5px; padding-right: 5px; width: 30%;">ADD EXPENSE</div>
         </div>
-        <div id="right" class="color_lvio" style="display:inline-block; width:48%; height: 180px; ">
+        <div id="right" class="color_lvio" style="width: 98%; height: 220px; margin-top: 10px; padding-top: 5px;">
           <div style="margin-top: 5px;">
-            <div id="dropdown1" class="color_dvio" style="width: 40%; display:inline-block;">All wallets <img src="drop.png" style=""></div>
-            <div id="dropdown2" class="color_dvio" style="width: 40%; display: inline-block;">All categories <img src="drop.png" style=""></div>
+            <div id="dropdown1" class="color_dvio inliner" style="width: 40%;">All wallets <img src="drop.png" style=""></div>
+            <div id="dropdown2" class="color_dvio inliner" style="width: 40%;">All categories <img src="drop.png" style=""></div>
           </div>
           <div align="center">
             <div id="e1" class="color_vio" style="width: 80%; margin-top: 5px;">
-              <div style="display: inline-block; float:left;">Coffee with friends</div>
-              <div style="display:inline-block;">1.3$</div>
-              <div style="display:inline-block; float:right">20.1.2016</div>
+              <div class="inliner" style="float:left;">Coffee with friends</div>
+              <div class="inliner">1.3$</div>
+              <div class="inliner" style="float:right">20.1.2016</div>
             </div>
             <div id="e2" class="color_vio" style="width: 80%; margin-top: 5px;">
-              <div style="display: inline-block; float:left;">Groceries</div>
-              <div style="display:inline-block;">12$</div>
-              <div style="display:inline-block; float:right">2.4.2016</div>
+              <div class="inliner" style="float:left;">Groceries</div>
+              <div class="inliner">12$</div>
+              <div class="inliner" style="float:right">2.4.2016</div>
             </div>
             <div id="e3" class="color_vio" style="width: 80%; margin-top: 5px;">
-              <div style="display: inline-block; float:left;">Lunch</div>
-              <div style="display:inline-block;">3.75$</div>
-              <div style="display:inline-block; float:right">1.2.2016</div>
+              <div class="inliner" style="float:left;">Lunch</div>
+              <div class="inliner">3.75$</div>
+              <div class="inliner" style="float:right">1.2.2016</div>
             </div>
             <div id="e4" class="color_vio" style="width: 80%; margin-top: 5px;"">
-              <div style="display: inline-block; float:left;">Scarf and gloves</div>
-              <div style="display:inline-block;">19.99$</div>
-              <div style="display:inline-block; float:right">17.3.2016</div>
+              <div class="inliner" style="float:left;">Scarf and gloves</div>
+              <div class="inliner">19.99$</div>
+              <div class="inliner" style="float:right">17.3.2016</div>
             </div>
             <div id="e5" class="color_vio" style="width: 80%; margin-top: 5px;">
-              <div style="display: inline-block; float:left;">Phone bill</div>
-              <div style="display:inline-block;">15.6$</div>
-              <div style="display:inline-block; float:right">30.5.2016</div>
+              <div class="inliner" style="float:left;">Phone bill</div>
+              <div class="inliner">15.6$</div>
+              <div class="inliner" style="float:right">30.5.2016</div>
             </div>
           </div><br>
           <div align="center" class="color_bro" style="padding-left: 5px; padding-right: 5px; width: 30%;">ADD EXPENSE</div>

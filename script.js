@@ -137,7 +137,7 @@ function updateBalance() {
 	
 }
 
-function logIn(form) {
+function logIn(form) { //TODO - ne dela vec ker ni vezano na formo
 	if (localStorage.getItem("users") != null) {
 	    users = JSON.parse(localStorage.getItem("users"));
 	}
@@ -151,7 +151,7 @@ function logIn(form) {
 	alert("Wrong e-mail or password.");
 	return false;
 }
-function signUp(form) {
+function signUp(form) { //TODO - ne dela vec ker ni vezano na formo
 	if (form.password2.value == form.password22.value) {
 		var newUser = {
 	      email: form.email2.value,
