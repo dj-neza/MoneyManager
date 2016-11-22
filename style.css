@@ -6,10 +6,24 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
 }
+a {
+	color:  #220800;
+}
 /* display table */
-.forma  { display: table; }
-.p_forma { display: table-row;  }
-.l_forma, .i_forma { display: table-cell; }
+.forma  { 
+	display: table; 
+	table-layout: fixed;
+	width: 100%;
+}
+.p_forma { 
+	display: table-row;
+	height: 25px;
+}
+.l_forma, .i_forma { 
+	display: table-cell; 
+	padding-left: 5px;
+	height: 25px;
+}
 /* display other stuff */
 .neviden {
     display: none !important;
