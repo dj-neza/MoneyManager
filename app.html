@@ -97,8 +97,64 @@
               <td class="i_forma">remove</td>
             </tr>
           </table></div>
-          <div align="center" class="color_bro" style="padding-left: 5px; margin-top:10px; padding-right: 5px; width: 30%; height: 20px;">ADD EXPENSE</div>
+          <div>
+            <div align="center" class="color_bro" style="padding-left: 5px; margin-top:10px; padding-right: 5px; width: 30%; height: 20px;" onclick="div_show('pop')"><a href="#myPopup" data-rel="popup">ADD EXPENSE</a></div>
+            <div id="pop">
+              <div id="popups" class="color_lvio">
+              <form action="#" id="form" method="post" name="form">
+              <img id="close" src="close.png" onclick ="div_hide('pop')">
+              <h2>New expense</h2>
+              <hr>
+              <div id="dropdown1" class="color_dvio" style="margin-top: 10px;">All wallets <img src="drop.png" ></div>
+              <div id="dropdown2" class="color_dvio " style="margin-top: 10px;">All categories <img src="drop.png" ></div>
+              <div style="margin-top: 10px;"><input id="amount" name="amount" placeholder="Enter amount in $" type="number" min="" ></div>
+              <div style="margin-top: 10px;"><input id="expName" name="expName" placeholder="Name the expense" type="text" ></div>
+              <div style="margin-top: 10px;"><input id="expDate" name="expDate" type="date" ></div>
+              <div style="margin-top: 10px;">
+                <input style="float:left;" type="checkbox" name="repeat" value="repetition" >Repeat the expense
+                <select style="float:right;">
+                  <option value="day">every day</option>
+                  <option value="month">every month</option>
+                  <option value="year">every year</option>
+                </select>
+              </div>
+              <div style="margin-top: 10px;">
+                <input style="float:left;" type="checkbox" name="loan" value="loan" >It's a loan
+                <input style="float:right;" id="loaned" name="loaned" placeholder="Loan recipient" type="text">
+              </div>
+              <a href="" id="addExp"><div class="color_bro" style="margin-top: 10px;">ADD</div></a>
+              </form>
+              </div>
+            </div>
+          </div>
         </div>
+        <div id="pop2">
+              <div id="popups2" class="color_lvio">
+              <form action="#" id="form" method="post" name="form">
+              <img id="close" src="close.png" onclick ="div_hide('pop')">
+              <h2>New expense</h2>
+              <hr>
+              <div id="dropdown1" class="color_dvio" style="margin-top: 10px;">All wallets <img src="drop.png" ></div>
+              <div id="dropdown2" class="color_dvio " style="margin-top: 10px;">All categories <img src="drop.png" ></div>
+              <div style="margin-top: 10px;"><input id="amount" name="amount" placeholder="Enter amount in $" type="number" min="" ></div>
+              <div style="margin-top: 10px;"><input id="expName" name="expName" placeholder="Name the expense" type="text" ></div>
+              <div style="margin-top: 10px;"><input id="expDate" name="expDate" type="date" ></div>
+              <div style="margin-top: 10px;">
+                <input style="float:left;" type="checkbox" name="repeat" value="repetition" >Repeat the expense
+                <select style="float:right;">
+                  <option value="day">every day</option>
+                  <option value="month">every month</option>
+                  <option value="year">every year</option>
+                </select>
+              </div>
+              <div style="margin-top: 10px;">
+                <input style="float:left;" type="checkbox" name="loan" value="loan" >It's a loan
+                <input style="float:right;" id="loaned" name="loaned" placeholder="Loan recipient" type="text">
+              </div>
+              <a href="" id="addExp"><div class="color_bro" style="margin-top: 10px;">ADD</div></a>
+              </form>
+              </div>
+            </div>
         <div id="right" class="color_lvio" style="width: 98%; height: 220px; margin-top: 10px; padding-top: 5px;">
           
         </div>

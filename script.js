@@ -186,3 +186,12 @@ function updateDatabaseGoals(goals) {
 function updateDatabaseCurrent(username) {
 	localStorage.setItem("currentUsername", JSON.stringify(username));
 }
+
+
+function div_show(id) {
+document.getElementById(id).style.display = "block";
+}
+//Function to Hide Popup
+function div_hide(id){
+document.getElementById(id).style.display = "none";
+}
