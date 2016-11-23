@@ -41,24 +41,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	    	fadeIn(d2);
 	    }
 	}
-	document.getElementById("manW").onclick = function() {
-		document.getElementById("manW").className = document.getElementById("manW").className.replace(/\bcolor_lvio\b/, "color_vio");
-	}
-	document.getElementById("manC").onclick = function() {
-		document.getElementById("manC").className = document.getElementById("manC").className.replace(/\bcolor_lvio\b/, "color_vio");
-	}
-	document.getElementById("export").onclick = function() {
-		document.getElementById("export").className = document.getElementById("export").className.replace(/\bcolor_lvio\b/, "color_vio");
-	}
-	document.getElementById("settings").onclick = function() {
-		document.getElementById("settings").className = document.getElementById("settings").className.replace(/\bcolor_lvio\b/, "color_vio");
-	}
-	document.getElementById("profile").onclick = function() {
-		document.getElementById("profile").className = document.getElementById("profile").className.replace(/\bcolor_lvio\b/, "color_vio");
-	}
-	document.getElementById("logout").onclick = function() {
-		document.getElementById("logout").className = document.getElementById("logout").className.replace(/\bcolor_lvio\b/, "color_vio");
-	}
 
 	document.getElementById("exp").onclick = function() { gumbi("exp", "stat", "inc", "goal"); }
 	document.getElementById("inc").onclick = function() { gumbi("inc", "exp", "stat", "goal"); }
@@ -189,9 +171,8 @@ function updateDatabaseCurrent(username) {
 
 
 function div_show(id) {
-document.getElementById(id).style.display = "block";
+	document.getElementById(id).style.display = "block";
 }
-//Function to Hide Popup
 function div_hide(id){
-document.getElementById(id).style.display = "none";
+	document.getElementById(id).style.display = "none";
 }
