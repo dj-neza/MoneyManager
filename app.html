@@ -23,21 +23,43 @@
     <br><br>
     <div align="center">BALANCE
       <div id="balance" class="color_bro" style="height: 70px;" >
-        <div id="drop" class="inliner">Total  <img src="drop.png" style=""></div>
+        <div id="drop" class="inliner">
+          <select style="">
+            <option value="total">Total</option>
+            <option value="wallet">Wallet</option>
+            <option value="creditcard">Credit card</option>
+          </select>
+        </div>
         <div id="total" class="color_yel inliner" style="margin-left: 10px; margin-top: 10px; height: 50px; line-height: 50px; padding-left: 5px; padding-right: 5px;">400 $</div>
         <div id="transaction" class="color_yel div_buttonL inliner" style=" margin-right: 10px; margin-left: 10px; margin-top: 10px; margin-bottom: 10px; height: 50px; line-height: 50px; padding-left: 5px; padding-right: 5px;">New transaction</div>
       </div><br><br>
       <div id="category">
-        <a href="app.html"><div id="exp" class="aktiven div_button inliner" style="width: 20%; height: 30px; ">Expenses</div></a>
-        <a href="app2.html"><div id="inc" class="neaktivn div_button inliner" style="width: 20%; height: 27px; ">Incomes</div></a>
-        <a href="app3.html"><div id="goal" class="neaktivn div_button inliner" style="width: 20%; height: 27px; ">Goals</div></a>
-        <a href="app4.html"><div id="stat" class="neaktivn div_button inliner" style="width: 20%; height: 27px; ">Statistics</div></a>
+        <div id="exp" class="aktiven div_button inliner" style="width: 20%; height: 30px; ">Expenses</div>
+        <div id="inc" class="neaktivn div_button inliner" style="width: 20%; height: 27px; ">Incomes</div>
+        <div id="goal" class="neaktivn div_button inliner" style="width: 20%; height: 27px; ">Goals</div>
+        <div id="stat" class="neaktivn div_button inliner" style="width: 20%; height: 27px; ">Statistics</div>
       </div>
       <div id="content" class="color_vio" style="width: 81%; height: 470px; padding-top: 10px;">
         <div id="left" class="color_lvio" style="width: 98%; height: 220px; padding-top: 5px;">
           <div style="width: 100%; height: 20px; margin-bottom: 10px;">
-            <div id="dropdown1" class="color_dvio inliner" style="width: 30%;">All wallets <img src="drop.png" style=""></div>
-            <div id="dropdown2" class="color_dvio inliner" style="width: 30%;">All categories <img src="drop.png" style=""></div>
+            <div id="dropdown1" class="inliner" style="">
+              <select style="">
+                <option value="total">All wallets</option>
+                <option value="wallet">Wallet</option>
+                <option value="creditcard">Credit card</option>
+              </select>
+            </div>
+            <div id="dropdown2" class="inliner" style="">
+              <select style="">
+                <option value="total">All categories</option>
+                <option value="wallet">Food</option>
+                <option value="creditcard">Travel</option>
+                <option value="creditcard">Bills</option>
+                <option value="creditcard">Sports</option>
+                <option value="creditcard">Cosmetics</option>
+                <option value="creditcard">Other</option>
+              </select>
+            </div>
           </div>
           <div style="width: 80%; height: 151px; overflow: auto;"><table class="forma" style="margin-top:1px; height: 100%;">
             <tr id="e1" class="color_vio p_forma" style="margin-top: 5px;">
@@ -105,8 +127,24 @@
               <img id="close" src="close.png" class="close" onclick ="div_hide('pop')">
               <h2>New expense</h2>
               <hr>
-              <div id="dropdown1" class="color_dvio" style="margin-top: 10px;">All wallets <img src="drop.png" ></div>
-              <div id="dropdown2" class="color_dvio " style="margin-top: 10px;">All categories <img src="drop.png" ></div>
+              <div id="dropdown1" class="inliner" style="">
+                <select style="">
+                  <option value="total">Choose wallet</option>
+                  <option value="wallet">Wallet</option>
+                  <option value="creditcard">Credit card</option>
+                </select>
+              </div>
+              <div id="dropdown2" class="inliner" style="">
+                <select style="">
+                  <option value="total">Choose category</option>
+                  <option value="wallet">Food</option>
+                  <option value="creditcard">Travel</option>
+                  <option value="creditcard">Bills</option>
+                  <option value="creditcard">Sports</option>
+                  <option value="creditcard">Cosmetics</option>
+                  <option value="creditcard">Other</option>
+                </select>
+              </div>
               <div style="margin-top: 10px;"><input id="amount" name="amount" placeholder="Enter amount in $" type="number" min="" ></div>
               <div style="margin-top: 10px;"><input id="expName" name="expName" placeholder="Name the expense" type="text" ></div>
               <div style="margin-top: 10px;"><input id="expDate" name="expDate" type="date" ></div>
@@ -149,7 +187,12 @@
           <img id="close" src="close.png" class="close" onclick ="div_hide('pop3')">
           <h2>My categories</h2>
           <hr>
-          <div id="dropdown1" class="color_dvio" style="margin-top: 10px;">Expense categories<img src="drop.png" ></div>
+          <div id="dropdown1" class="inliner" style="">
+            <select style="">
+              <option value="expcat">Expense categories</option>
+              <option value="inccat">Income categories</option>
+            </select>
+          </div>
           <div align="left" style="overflow: auto;">
             <div style="margin-top: 10px;"><input id="cat1" name="cat1" type="text" value="Food" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
             <div style="margin-top: 10px;"><input id="cat2" name="cat2" type="text" value="Travel" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
@@ -169,7 +212,6 @@
           <img id="close" src="close.png" class="close" onclick ="div_hide('pop4')">
           <h2>Export</h2>
           <hr>
-          <div id="dropdown1" class="color_dvio" style="margin-top: 10px;">Expense categories<img src="drop.png" ></div>
           <div align="left" style="overflow: scroll;">
             <div style="margin-top: 10px;"><select>
               <option value="nothing">choose file format for export</option>
