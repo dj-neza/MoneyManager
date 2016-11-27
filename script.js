@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	        fadeOut(d2);
 	    }
 	    else {
-	    	d.className += "acti";
+	    	d.className += " acti";
 	    	fadeIn(d2);
 	    }
 	}
@@ -37,15 +37,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	        fadeOut(d2);
 	    }
 	    else {
-	    	d.className += "acti";
+	    	d.className += " acti";
 	    	fadeIn(d2);
 	    }
 	}
 
-	document.getElementById("exp").onclick = function() { gumbi("exp", "stat", "inc", "goal"); }
-	document.getElementById("inc").onclick = function() { gumbi("inc", "exp", "stat", "goal"); }
-	document.getElementById("goal").onclick = function() { gumbi("goal", "exp", "inc", "stat"); }
-	document.getElementById("stat").onclick = function() { gumbi("stat", "exp", "inc", "goal"); }
+	document.getElementById("exp").onclick = function() { 
+		gumbi("exp", "stat", "inc", "goal"); 
+		openTab("expensecontent", "statscontent", "incomecontent", "goalscontent");
+	}
+	document.getElementById("inc").onclick = function() { 
+		gumbi("inc", "exp", "stat", "goal"); 
+		openTab("incomecontent", "expensecontent", "statscontent", "goalscontent");
+	}
+	document.getElementById("goal").onclick = function() { 
+		gumbi("goal", "exp", "inc", "stat"); 
+		openTab("goalscontent", "expensecontent", "incomecontent", "statscontent");
+	}
+	document.getElementById("stat").onclick = function() { 
+		gumbi("stat", "exp", "inc", "goal"); 
+		openTab("statscontent", "expensecontent", "incomecontent", "goalscontent");
+	}
 });
 
 function gumbi(id1, id2, id3, id4) {
@@ -53,6 +65,20 @@ function gumbi(id1, id2, id3, id4) {
 	document.getElementById(id2).className = document.getElementById(id2).className.replace(/\baktiven\b/, "neaktivn");
 	document.getElementById(id3).className = document.getElementById(id3).className.replace(/\baktiven\b/, "neaktivn");
 	document.getElementById(id4).className = document.getElementById(id4).className.replace(/\baktiven\b/, "neaktivn");
+}
+function openTab(id1, id2, id3, id4) {
+	if (hasClass(document.getElementById(id1), 'neviden')) {
+		document.getElementById(id1).className = document.getElementById(id1).className.replace(/\bneviden\b/,'');
+	}
+	if (!hasClass(document.getElementById(id2), 'neviden')) {
+		document.getElementById(id2).className += " neviden";
+	}
+	if (!hasClass(document.getElementById(id3), 'neviden')) {
+		document.getElementById(id3).className += " neviden";
+	}
+	if (!hasClass(document.getElementById(id4), 'neviden')) {
+		document.getElementById(id4).className += " neviden";
+	}
 }
 
 function hasClass(element, cls) {
