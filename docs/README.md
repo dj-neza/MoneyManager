@@ -9,9 +9,11 @@ Ciljni uporabniki so predvsem ljudje, ki so vajeni uporabe tehnologije in želij
 Odločila sem se za hierarhično organizacijo spletne strani in se osredotočila na vsebino. Domača stran tako že sama po sebi prikazuje informacije (izdatke), obenem pa z gumbi in meniji omogoča hiter prehod na vse ostale dele, tako da lahko uporabnik le z nekaj kliki naredi karkoli. 
 
 ## Različni brskalniki
-
+Za testiranje sem uporabila Firefox, Chrome in Safari. Aplikacija je večinoma dobro delovala tudi pri spreminjanju velikosti, problemi so se pojavili le pri dinamičnem spreminjanju form, saj v Safariju ni delovalo brisanje class atirbutov. 
 
 ## 2 posebna gradnika
-
+1. Dodala sem dinamičen hamburger menu, ki se z manjšo animacijo prikaže ali skrije in je zelo uporaben tudi pri responsive designu, saj ni v napoto. 
+2. Poleg tega sem implementirala tudi način prikaza podatkov z zavihki, kar mi je omogočilo poudarek vsebine, saj je večinoma celotna vsebina na zaslonu. 
 
 ## Dodatni komentarji & problemi
+Moj glavni problem je bil, da validator ne omogoča align atributa. Sama sem vse naredila na ta način in nekaterih stvari potem nisem mogla enako implementirati brez tega, zato se mi je malo pokvaril design. 
