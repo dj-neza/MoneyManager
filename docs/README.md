@@ -16,4 +16,4 @@ Za testiranje sem uporabila Firefox, Chrome in Safari. Aplikacija je večinoma d
 2. Poleg tega sem implementirala tudi način prikaza podatkov z zavihki, kar mi je omogočilo poudarek vsebine, saj je večinoma celotna vsebina na zaslonu. 
 
 ## Dodatni komentarji & problemi
-Moj glavni problem je bil, da validator ne omogoča align atributa. Sama sem vse naredila na ta način in nekaterih stvari potem nisem mogla enako implementirati brez tega, zato se mi je malo pokvaril design. 
+Moj glavni problem je bil, da validator ne omogoča align atributa. Sama sem vse naredila na ta način in nekaterih stvari potem nisem mogla enako implementirati brez tega, zato se mi je malo pokvaril design.
