@@ -160,7 +160,8 @@ input {
 	position:absolute;
 	left:50%;
 	top:17%;
-	margin-left:-202px;
+	margin-left: -202px;
+	max-width: 400px;
 }
 
 /* responsive design */

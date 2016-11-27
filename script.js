@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	document.getElementById("inc").onclick = function() { gumbi("inc", "exp", "stat", "goal"); }
 	document.getElementById("goal").onclick = function() { gumbi("goal", "exp", "inc", "stat"); }
 	document.getElementById("stat").onclick = function() { gumbi("stat", "exp", "inc", "goal"); }
-
 });
 
 function gumbi(id1, id2, id3, id4) {
@@ -54,18 +53,14 @@ function gumbi(id1, id2, id3, id4) {
 	document.getElementById(id2).className = document.getElementById(id2).className.replace(/\baktiven\b/, "neaktivn");
 	document.getElementById(id3).className = document.getElementById(id3).className.replace(/\baktiven\b/, "neaktivn");
 	document.getElementById(id4).className = document.getElementById(id4).className.replace(/\baktiven\b/, "neaktivn");
-	document.getElementById(id1).style.height = "30px";
-	document.getElementById(id2).style.height = "27px";
-	document.getElementById(id3).style.height = "27px";
-	document.getElementById(id4).style.height = "27px";
 }
 
 function hasClass(element, cls) {
     return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
 }
+
 function fadeOut(el){
   el.style.opacity = 1;
-
   (function fade() {
     if ((el.style.opacity -= .1) < 0) {
       el.style.display = 'none';
@@ -75,13 +70,9 @@ function fadeOut(el){
     }
   })();
 }
-
-// fade in
-
 function fadeIn(el, display){
   el.style.opacity = 0;
   el.style.display = display || "block";
-
   (function fade() {
     var val = parseFloat(el.style.opacity);
     if (!((val += .1) > 1)) {
@@ -89,34 +80,6 @@ function fadeIn(el, display){
       requestAnimationFrame(fade);
     }
   })();
-}
-
-
-function newTransaction() {
-
-}
-function newExpense() {
-
-}
-function newIncome() {
-
-}
-
-function newGoal() {
-
-}
-function addToGoal() {
-
-}
-
-function menu() {
-
-}
-function user() {
-
-}
-function updateBalance() {
-	
 }
 
 function logIn(form) { //TODO - ne dela vec ker ni vezano na formo
@@ -152,7 +115,7 @@ function signUp(form) { //TODO - ne dela vec ker ni vezano na formo
 	}
 } 
 function logOut() {
-	var currentUser = ""
+	var currentUser = "";
 	updateDatabaseCurrent(currentUser);
 }
 
@@ -169,10 +132,38 @@ function updateDatabaseCurrent(username) {
 	localStorage.setItem("currentUsername", JSON.stringify(username));
 }
 
-
 function div_show(id) {
 	document.getElementById(id).style.display = "block";
 }
 function div_hide(id){
 	document.getElementById(id).style.display = "none";
 }
+
+/* FUNCIONALITY STUFF
+function newTransaction() {
+
+}
+function newExpense() {
+
+}
+function newIncome() {
+
+}
+
+function newGoal() {
+
+}
+function addToGoal() {
+
+}
+
+function menu() {
+
+}
+function user() {
+
+}
+function updateBalance() {
+	
+}
+*/
