@@ -4,6 +4,7 @@ var goals = [];
 var currentUsername = "";
 
 document.addEventListener("DOMContentLoaded", function(event) { 
+	console.log("work");
 	if (localStorage.getItem("users") != null) {
 	    users = JSON.parse(localStorage.getItem("users"));
 	}
