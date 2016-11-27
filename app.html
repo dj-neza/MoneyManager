@@ -3,6 +3,7 @@
     <title>Money manager</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script type="text/javascript" src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <div id="row" align="center" style="height: 50px;">
@@ -13,45 +14,355 @@
         <div id="export" align="center" style="width: 95%; height: 25px; " class="color_lvio div_button" onclick="div_show('pop4')">Export data</div><br>
         <div onclick="div_show('pop5')" id="settings" align="center" style="width: 95%; height: 25px; " class="color_lvio div_button">Settings</div>
       </div>
-      <div id="logoMini" class="inliner" ><img src="Logo.png" style="height: 50px;"></div>
+      <div id="logoMini" class="inliner" ><img src="Logo_color.png" style="height: 50px;"></div>
       <a href="#menu2" id="toggle2" class=""><img src="human.png" style="height: 100%; width: 100%;"></a>
       <div id="menu2" class="menu_toggle2">
         <div id="profile" align="center" style="width: 95%; height: 25px;" class="color_lvio div_button" onclick="div_show('pop6')">Profile settings</div><br>
         <div id="logout" align="center" style="width: 95%; height: 25px; " class="color_lvio div_button">Log out</div>
       </div>
     </div>
-    <br><br>
-    <div align="center">BALANCE
-      <div id="balance" class="color_bro" style="height: 70px;" >
-        <div id="drop" class="inliner">
+    <div align="center" style="font-weight: bold; margin-top: 30px;">BALANCE
+      <div id="balance" class="color_bro row" style="">
+        <div class="col-4 col-m-3"></div>
+        <div id="drop" class="col-3 col-m-4 inliner color_yel" style="margin-bottom: 10px; margin-top: 10px;">
           <select style="">
             <option value="total">Total</option>
             <option value="wallet">Wallet</option>
             <option value="creditcard">Credit card</option>
           </select>
+          <div id="total" class="inliner" style="padding: 10px; ">400 $</div>
         </div>
-        <div id="total" class="color_yel inliner" style="margin-left: 10px; margin-top: 10px; height: 50px; line-height: 50px; padding-left: 5px; padding-right: 5px;">400 $</div>
-        <div id="transaction" class="color_yel div_buttonL inliner" onclick="div_show('pop7')" style=" margin-right: 10px; margin-left: 10px; margin-top: 10px; margin-bottom: 10px; height: 50px; line-height: 50px; padding-left: 5px; padding-right: 5px;">New transaction</div>
-      </div><br><br>
-      <div id="category">
-        <div id="exp" class="aktiven div_button inliner" style="width: 20%; height: 30px; ">Expenses</div>
-        <div id="inc" class="neaktivn div_button inliner" style="width: 20%; height: 27px; ">Incomes</div>
-        <div id="goal" class="neaktivn div_button inliner" style="width: 20%; height: 27px; ">Goals</div>
-        <div id="stat" class="neaktivn div_button inliner" style="width: 20%; height: 27px; ">Statistics</div>
+        <div id="transaction" class="color_yel div_buttonL col-2 col-m-3 col-s-1 inliner" onclick="div_show('pop7')" style="padding: 5px; margin-left: 10px; margin-right: 10px; margin-top: 10px;">New transaction</div>
+        <div class="col-3 col-m-2"></div>
       </div>
-      <div id="content" class="color_vio" style="width: 81%; height: 470px; padding-top: 10px;">
-        <div id="left" class="color_lvio" style="width: 98%; height: 220px; padding-top: 5px;">
-          <div style="width: 100%; height: 20px; margin-bottom: 10px;">
-            <div id="dropdown1" class="inliner" style="">
+      <div id="category" class="row" style="margin-top: 30px;">
+        <div class="col-1 col-m-1"></div>
+        <div id="exp" class="col-2-5 col-m-2-5 col-s-4 aktiven div_button inliner" style="height: 30px; border: 1px solid #cbb7c3;">Expenses</div>
+        <div id="inc" class="col-2-5 col-m-2-5 col-s-4 neaktivn div_button inliner" style="height: 30px; border: 1px solid #cbb7c3;">Incomes</div>
+        <div id="goal" class="col-2-5 col-m-2-5 col-s-4 neaktivn div_button inliner" style="height: 30px; border: 1px solid #cbb7c3;">Goals</div>
+        <div id="stat" class="col-2-5 col-m-2-5 col-s-4 neaktivn div_button inliner" style="height: 30px; border: 1px solid #cbb7c3;">Statistics</div>
+        <div class="col-1 col-m-1"></div>
+      </div>
+      <div class="row">
+        <div class="col-1 col-m-1"></div>
+        <div id="content" class="col-10 col-m-10 color_vio" style="padding-top: 10px;">
+          <div id="left" class="color_lvio" style="width: 98%; height: 220px; padding-top: 5px;">
+            <div style="width: 100%; height: 20px; margin-bottom: 10px;">
+              <div id="dropdown1" class="inliner" style="">
+                <select style="">
+                  <option value="total">All wallets</option>
+                  <option value="wallet">Wallet</option>
+                  <option value="creditcard">Credit card</option>
+                </select>
+              </div>
+              <div id="dropdown2" class="inliner" style="">
+                <select style="">
+                  <option value="total">All categories</option>
+                  <option value="wallet">Food</option>
+                  <option value="creditcard">Travel</option>
+                  <option value="creditcard">Bills</option>
+                  <option value="creditcard">Sports</option>
+                  <option value="creditcard">Cosmetics</option>
+                  <option value="creditcard">Clothes</option>
+                  <option value="creditcard">Other</option>
+                </select>
+              </div>
+            </div>
+            <div style="width: 98%; height: 151px; overflow: auto;"><table style="margin-top:1px; width:100%; height: 100%;">
+              <tr id="e1" class="color_vio " style="margin-top: 5px; height: 25px;">
+                <td align="center" class="color_yel"  style="height: 25px; font-weight:bold;">Coffee with friends</td>
+                <td class="" style="height: 25px;">Food</td>
+                <td class="" style="height: 25px;">1.3$</td>
+                <td class="" style="height: 25px;">20.1.2016</td>
+                <td class="" style="height: 25px;">edit</td>
+                <td class="" style="height: 25px;">remove</td>
+              </tr>
+              <tr id="e2" class="color_vio" style="margin-top: 5px;">
+                <td align="center" class="color_yel"  style="height: 25px; font-weight:bold;">Groceries</td>
+                <td class="" style="height: 25px;">Food</td>
+                <td class="" style="height: 25px;">12$</td>
+                <td class="" style="height: 25px;">2.4.2016</td>
+                <td class="" style="height: 25px;">edit</td>
+                <td class="" style="height: 25px;">remove</td>
+              </tr>
+              <tr id="e3" class="color_vio" style="margin-top: 5px;">
+                <td align="center" class="color_yel" style="height: 25px; font-weight:bold;">Lunch</td>
+                <td class="" style="height: 25px;">Food</td>
+                <td class="" style="height: 25px;">3.75$</td>
+                <td class="" style="height: 25px;">1.2.2016</td>
+                <td class="" style="height: 25px;">edit</td>
+                <td class="" style="height: 25px;">remove</td>
+              </tr>
+              <tr id="e4" class="color_vio" style="margin-top: 5px;"">
+                <td align="center" class="color_yel" style="height: 25px; font-weight:bold;">Scarf and gloves</td>
+                <td class="" style="height: 25px;">Clothes</td>
+                <td class="" style="height: 25px;">19.99$</td>
+                <td class="" style="height: 25px;">17.3.2016</td>
+                <td class="" style="height: 25px;">edit</td>
+                <td class="" style="height: 25px;">remove</td>
+              </tr>
+              <tr id="e5" class="color_vio " style="margin-top: 5px;">
+                <td align="center" class="color_yel" style="height: 25px; font-weight:bold;">Phone bill</td>
+                <td class="" style="height: 25px;">Bills</td>
+                <td class="" style="height: 25px;">15.6$</td>
+                <td class="" style="height: 25px;">30.5.2016</td>
+                <td class="" style="height: 25px;">edit</td>
+                <td class="" style="height: 25px;">remove</td>
+              </tr>
+              <tr id="e5" class="color_vio " style="margin-top: 5px;">
+                <td align="center" class="color_yel" style="height: 25px; font-weight:bold;">Phone bill</td>
+                <td class="" style="height: 25px;">Bills</td>
+                <td class="" style="height: 25px;">15.6$</td>
+                <td class="" style="height: 25px;">30.6.2016</td>
+                <td class="" style="height: 25px;">edit</td>
+                <td class="" style="height: 25px;">remove</td>
+              </tr>
+              <tr id="e5" class="color_vio " style="margin-top: 5px;">
+                <td align="center" class="color_yel" style="height: 25px; font-weight:bold;">Phone bill</td>
+                <td class="" style="height: 25px;">Bills</td>
+                <td class="" style="height: 25px;">15.6$</td>
+                <td class="" style="height: 25px;">30.7.2016</td>
+                <td class="" style="height: 25px;">edit</td>
+                <td class="" style="height: 25px;">remove</td>
+              </tr>
+              <tr id="e5" class="color_vio " style="margin-top: 5px;">
+                <td align="center" class="color_yel" style="height: 25px; font-weight:bold;">Phone bill</td>
+                <td class="" style="height: 25px;">Bills</td>
+                <td class="" style="height: 25px;">15.6$</td>
+                <td class="" style="height: 25px;">30.8.2016</td>
+                <td class="" style="height: 25px;">edit</td>
+                <td class="" style="height: 25px;">remove</td>
+              </tr>
+            </table></div>
+            <div>
+              <div align="center" class="color_bro" style="padding-left: 5px; margin-top:10px; padding-right: 5px; min-width: 125px; width: 30px; height: 20px; cursor:pointer;" onclick="div_show('pop')">ADD EXPENSE</div>
+            </div>  
+          </div>
+          <div id="right" class="color_lvio" style="width: 98%; height: 220px; margin-top: 10px; padding-top: 5px;">
+            <div id="goals" class="row" style="width: 100%; height: 171px; overflow: auto;">
+              <div align="center" id="goal1" class="col-4 col-m-6 inliner" style="">
+                <div class="color_vio" style="margin: 5px; padding-top:5px; height: 110px;">
+                  <div style="margin-top: 10px;">Computer</div>
+                  <div class="color_yel" style="margin-top: 10px; width: 85%; min-width: 180px;">300$ out of 1200$</div>
+                  <div class="color_bro" style="margin-top: 10px; width: 75%;" onclick ="div_show('pop9')">ADD TO GOAL</div>
+                </div>
+              </div>
+              <div align="center" id="goal2" class="col-4 col-m-6 inliner" style="">
+                <div class="color_vio" style="margin: 5px; padding-top:5px; height: 110px;">
+                  <div style="margin-top: 10px;">Car</div>
+                  <div class="color_yel" style="margin-top: 10px; width: 85%; min-width: 180px;">1020$ out of 5000$</div>
+                  <div class="color_bro" style="margin-top: 10px; width: 75%;" onclick ="div_show('pop9')">ADD TO GOAL</div>
+                </div>
+              </div>
+              <div align="center" id="goal3" class="col-4 col-m-6 inliner" style="">
+                <div class="color_vio" style="margin: 5px; padding-top:5px; height: 110px;">
+                  <div style="margin-top: 10px;">Flat</div>
+                  <div class="color_yel" style="margin-top: 10px; width: 85%; min-width: 180px;">100500$ out of 370000$</div>
+                  <div class="color_bro" style="margin-top: 10px; width: 75%;" onclick ="div_show('pop9')">ADD TO GOAL</div>
+                </div>
+              </div>
+              <div align="center" id="goal1" class="col-4 col-m-6 inliner" style="">
+                <div class="color_vio" style="margin: 5px; padding-top:5px; height: 110px;">
+                  <div style="margin-top: 10px;">Summer vacation</div>
+                  <div class="color_yel" style="margin-top: 10px; width: 85%; min-width: 180px;">0$ out of 1000$</div>
+                  <div class="color_bro" style="margin-top: 10px; width: 75%;" onclick ="div_show('pop9')">ADD TO GOAL</div>
+                </div>
+              </div>
+              <div align="center" id="goal1" class="col-4 col-m-6 inliner " style="">
+                <div class="color_vio" style="margin: 5px; padding-top:5px; height: 110px;">
+                  <div style="margin-top: 10px;">Savings</div>
+                  <div class="color_yel" style="margin-top: 10px; width: 85%; min-width: 180px;">70$ out of 5000$</div>
+                  <div class="color_bro" style="margin-top: 10px; width: 75%;" onclick ="div_show('pop9')">ADD TO GOAL</div>
+                </div>
+              </div>
+            </div>
+            <div align="center" class="color_bro" style="padding-left: 5px; margin-top:10px; padding-right: 5px; min-width: 125px; width: 30%; height: 20px; cursor:pointer;" onclick="div_show('pop10')">NEW GOAL</div>
+          </div>
+        </div>
+        <div class="col-1 col-m-1"></div>
+        <br>
+      </div>
+    </div>
+
+    <div align="center">
+      <div class="pop" id="pop">
+        <div class="popups color_lvio" id="popups">
+        <form action="#" id="form" method="post" name="form">
+        <img id="close" src="close.png" class="close" onclick ="div_hide('pop')">
+        <h2>New expense</h2>
+        <hr>
+        <div id="dropdown1" class="inliner" style="">
+          <select style="">
+            <option value="total">Choose wallet</option>
+            <option value="wallet">Wallet</option>
+            <option value="creditcard">Credit card</option>
+          </select>
+        </div>
+        <div id="dropdown2" class="inliner" style="">
+          <select style="">
+            <option value="total">Choose category</option>
+            <option value="wallet">Food</option>
+            <option value="creditcard">Travel</option>
+            <option value="creditcard">Bills</option>
+            <option value="creditcard">Sports</option>
+            <option value="creditcard">Cosmetics</option>
+            <option value="creditcard">Other</option>
+          </select>
+        </div>
+        <div style="margin-top: 10px;"><input id="amount" name="amount" placeholder="Enter amount in $" type="number" min="" ></div>
+        <div style="margin-top: 10px;"><input id="expName" name="expName" placeholder="Name the expense" type="text" ></div>
+        <div style="margin-top: 10px;"><input id="expDate" name="expDate" type="date" ></div>
+        <div style="margin-top: 10px;">
+          <input style="float:left;" type="checkbox" name="repeat" value="repetition" >Repeat the expense
+          <select style="float:right;">
+            <option value="day">every day</option>
+            <option value="month">every month</option>
+            <option value="year">every year</option>
+          </select>
+        </div>
+        <div style="margin-top: 10px;">
+          <input style="float:left;" type="checkbox" name="loan" value="loan" >It's a loan
+          <input style="float:right;" id="loaned" name="loaned" placeholder="Loan recipient" type="text">
+        </div>
+        <a href="" id="addExp"><div class="color_bro" style="margin-top: 10px;">ADD</div></a>
+        </form>
+        </div>
+      </div>
+
+      <div class="pop" id="pop2">
+        <div class="popups color_lvio" id="popups2">
+        <form action="#" id="form" method="post" name="form">
+        <img id="close" src="close.png" class="close" onclick ="div_hide('pop2')">
+        <h2>My wallets</h2>
+        <hr>
+        <div align="left" style="overflow: auto;">
+          <div style="margin-top: 10px;"><input id="wallet1" name="wallet1" type="text" value="Wallet" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
+          <div style="margin-top: 10px;"><input id="wallet2" name="wallet2" type="text" value="Credit card" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
+          <div style="margin-top: 10px;"><input id="wallet3" name="wallet3" type="text" placeholder="Add a wallet" ><img id="check" class="icon" src="check.png" onclick =""></div>
+          <div align="center" style="margin-top: 10px;"><img id="add" class="icon" src="plus.png" onclick =""></div>              
+        </div>
+        </form>
+        </div>
+      </div>
+
+      <div class="pop" id="pop3">
+        <div class="popups color_lvio" id="popups3">
+        <form action="#" id="form" method="post" name="form">
+        <img id="close" src="close.png" class="close" onclick ="div_hide('pop3')">
+        <h2>My categories</h2>
+        <hr>
+        <div id="dropdown1" class="inliner" style="">
+          <select style="">
+            <option value="expcat">Expense categories</option>
+            <option value="inccat">Income categories</option>
+          </select>
+        </div>
+        <div align="left" style="overflow: auto;">
+          <div style="margin-top: 10px;"><input id="cat1" name="cat1" type="text" value="Food" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
+          <div style="margin-top: 10px;"><input id="cat2" name="cat2" type="text" value="Travel" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
+          <div style="margin-top: 10px;"><input id="cat3" name="cat3" type="text" value="Bills" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
+          <div style="margin-top: 10px;"><input id="cat4" name="cat4" type="text" value="Sports" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
+          <div style="margin-top: 10px;"><input id="cat5" name="cat5" type="text" value="Cosmetics" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
+          <div style="margin-top: 10px;"><input id="cat6" name="cat6" type="text" value="Other" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
+          <div style="margin-top: 10px;"><input id="wallet3" name="wallet3" type="text" placeholder="Add a category" ><img id="check" class="icon" src="check.png" onclick =""></div>
+          <div align="center" style="margin-top: 10px;"><img id="add" class="icon" src="plus.png" onclick =""></div>              
+        </div>
+        </form>
+        </div>
+      </div>
+
+      <div class="pop" id="pop4">
+        <div class="popups color_lvio" id="popups4">
+        <form action="#" id="form" method="post" name="form">
+        <img id="close" src="close.png" class="close" onclick ="div_hide('pop4')">
+        <h2>Export</h2>
+        <hr>
+        <div align="left" style="overflow: scroll;">
+          <div style="margin-top: 10px;"><select>
+            <option value="nothing">choose file format for export</option>
+            <option value="txt">txt</option>
+          </select></div>
+          <div style="margin-top: 10px;"><input id="exportlocation" type="text" placeholder="Where to export?" ><div onclick="" style="display: inline-block; cursor: pointer; margin-left: 10px;">browse</div></div>
+          <div align="center" style="margin-top: 10px;" class="color_bro">EXPORT</div>              
+        </div>
+        </form>
+        </div>
+      </div>
+
+      <div class="pop" id="pop5">
+        <div class="popups color_lvio" id="popups5">
+        <form action="#" id="form" method="post" name="form">
+        <img id="close" src="close.png" class="close" onclick ="div_hide('pop5')">
+        <h2>Settings</h2>
+        <hr>
+        <div align="left" style="overflow: scroll;">
+          <div style="margin-top: 10px;">Currency <select style="float:right;">
+            <option value="dollar">$</option>
+            <option value="euro">€</option>
+          </select></div>
+          <div style="margin-top: 10px;">Decimal places <select style="float:right;">
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+          </select></div>
+          <div style="margin-top: 10px;">Decimal mark <select style="float:right;">
+            <option value="dot">.</option>
+            <option value="comma">,</option>
+          </select></div>
+          <div align="center" style="margin-top: 10px;" class="color_bro">SAVE</div>              
+        </div>
+        </form>
+        </div>
+      </div>
+
+      <div class="pop" id="pop6">
+        <div class="popups color_lvio" id="popups6">
+        <form action="#" id="form" method="post" name="form">
+        <img id="close" src="close.png" class="close" onclick ="div_hide('pop6')">
+        <h2>My profile</h2>
+        <hr>
+        <div align="left" style="overflow: scroll;">
+          <div style="margin-top: 10px;"><input id="username" type="text" value="User1" ><img id="edit" class="icon" src="edit.png" onclick =""></div>
+          <div style="margin-top: 10px;"><input id="e-mail" type="email" value="email@example.com" ><img id="edit" class="icon" src="edit.png" onclick =""></div>
+          <div style="margin-top: 10px;"><input id="pass1" type="password" placeholder="New password" ></div>
+          <div style="margin-top: 10px;"><input id="pass2" type="password" placeholder="Confirm new password" ><img id="edit" class="icon" src="check.png" onclick =""></div>
+          <div style="margin-top: 10px;">Avatar <img style="width: 30px; height: 30px;" id="avatar" src="human.png"><img id="edit" class="icon" src="edit.png" onclick =""></div>
+          <div align="center" style="margin-top: 10px;" class="color_bro">SAVE</div>              
+        </div>
+        </form>
+        </div>
+      </div>
+
+      <div class="pop" id="pop7">
+        <div class="popups color_lvio" id="popups7">
+        <form action="#" id="form" method="post" name="form">
+        <img id="close" src="close.png" class="close" onclick ="div_hide('pop7')">
+        <h2>New transaction</h2>
+        <hr>
+            <div id="dropdown1" style="margin-top: 10px;">
               <select style="">
-                <option value="total">All wallets</option>
+                <option value="total">Transaction between wallets</option>
+                <option value="wallet">Expense</option>
+                <option value="creditcard">Income</option>
+              </select>
+            </div>
+            <div id="dropdown1" style="margin-top: 10px;">From 
+              <select style="">
+                <option value="total">Choose wallet</option>
                 <option value="wallet">Wallet</option>
                 <option value="creditcard">Credit card</option>
               </select>
             </div>
-            <div id="dropdown2" class="inliner" style="">
+            <div id="dropdown1" style="margin-top: 10px;">To
               <select style="">
-                <option value="total">All categories</option>
+                <option value="total">Choose wallet</option>
+                <option value="wallet">Wallet</option>
+                <option value="creditcard">Credit card</option>
+              </select>
+            </div>
+            <div id="dropdown2" class="inliner" style="display:none;">
+              <select style="">
+                <option value="total">Choose category</option>
                 <option value="wallet">Food</option>
                 <option value="creditcard">Travel</option>
                 <option value="creditcard">Bills</option>
@@ -60,355 +371,131 @@
                 <option value="creditcard">Other</option>
               </select>
             </div>
-          </div>
-          <div style="width: 80%; height: 151px; overflow: auto;"><table class="forma" style="margin-top:1px; height: 100%;">
-            <tr id="e1" class="color_vio p_forma" style="margin-top: 5px;">
-              <td class="i_forma">Coffee with friends</td>
-              <td class="i_forma">1.3$</td>
-              <td class="i_forma">20.1.2016</td>
-              <td class="i_forma">edit</td>
-              <td class="i_forma">remove</td>
-            </tr>
-            <tr id="e2" class="color_vio p_forma" style="margin-top: 5px;">
-              <td class="i_forma" style="">Groceries</td>
-              <td class="i_forma" style="">12$</td>
-              <td class="i_forma" style="">2.4.2016</td>
-              <td class="i_forma">edit</td>
-              <td class="i_forma">remove</td>
-            </tr>
-            <tr id="e3" class="color_vio p_forma" style="margin-top: 5px;">
-              <td class="i_forma" style="">Lunch</td>
-              <td class="i_forma">3.75$</td>
-              <td class="i_forma" style="">1.2.2016</td>
-              <td class="i_forma">edit</td>
-              <td class="i_forma">remove</td>
-            </tr>
-            <tr id="e4" class="color_vio p_forma" style="margin-top: 5px;"">
-              <td class="i_forma" style="">Scarf and gloves</td>
-              <td class="i_forma">19.99$</td>
-              <td class="i_forma" style="">17.3.2016</td>
-              <td class="i_forma">edit</td>
-              <td class="i_forma">remove</td>
-            </tr>
-            <tr id="e5" class="color_vio p_forma" style="margin-top: 5px;">
-              <td class="i_forma" style="">Phone bill</td>
-              <td class="i_forma">15.6$</td>
-              <td class="i_forma" style="">30.5.2016</td>
-              <td class="i_forma">edit</td>
-              <td class="i_forma">remove</td>
-            </tr>
-            <tr id="e5" class="color_vio p_forma" style="margin-top: 5px;">
-              <td class="i_forma" style="">Phone bill</td>
-              <td class="i_forma">15.6$</td>
-              <td class="i_forma" style="">30.5.2016</td>
-              <td class="i_forma">edit</td>
-              <td class="i_forma">remove</td>
-            </tr>
-            <tr id="e5" class="color_vio p_forma" style="margin-top: 5px;">
-              <td class="i_forma" style="">Phone bill</td>
-              <td class="i_forma">15.6$</td>
-              <td class="i_forma" style="">30.5.2016</td>
-              <td class="i_forma">edit</td>
-              <td class="i_forma">remove</td>
-            </tr>
-            <tr id="e5" class="color_vio p_forma" style="margin-top: 5px;">
-              <td class="i_forma" style="">Phone bill</td>
-              <td class="i_forma">15.6$</td>
-              <td class="i_forma" style="">30.5.2016</td>
-              <td class="i_forma">edit</td>
-              <td class="i_forma">remove</td>
-            </tr>
-          </table></div>
-          <div>
-            <div align="center" class="color_bro" style="padding-left: 5px; margin-top:10px; padding-right: 5px; width: 30%; height: 20px; cursor:pointer;" onclick="div_show('pop')">ADD EXPENSE</div>
-            <div class="pop" id="pop">
-              <div class="popups color_lvio" id="popups">
-              <form action="#" id="form" method="post" name="form">
-              <img id="close" src="close.png" class="close" onclick ="div_hide('pop')">
-              <h2>New expense</h2>
-              <hr>
-              <div id="dropdown1" class="inliner" style="">
-                <select style="">
-                  <option value="total">Choose wallet</option>
-                  <option value="wallet">Wallet</option>
-                  <option value="creditcard">Credit card</option>
-                </select>
-              </div>
-              <div id="dropdown2" class="inliner" style="">
-                <select style="">
-                  <option value="total">Choose category</option>
-                  <option value="wallet">Food</option>
-                  <option value="creditcard">Travel</option>
-                  <option value="creditcard">Bills</option>
-                  <option value="creditcard">Sports</option>
-                  <option value="creditcard">Cosmetics</option>
-                  <option value="creditcard">Other</option>
-                </select>
-              </div>
-              <div style="margin-top: 10px;"><input id="amount" name="amount" placeholder="Enter amount in $" type="number" min="" ></div>
-              <div style="margin-top: 10px;"><input id="expName" name="expName" placeholder="Name the expense" type="text" ></div>
-              <div style="margin-top: 10px;"><input id="expDate" name="expDate" type="date" ></div>
-              <div style="margin-top: 10px;">
-                <input style="float:left;" type="checkbox" name="repeat" value="repetition" >Repeat the expense
-                <select style="float:right;">
-                  <option value="day">every day</option>
-                  <option value="month">every month</option>
-                  <option value="year">every year</option>
-                </select>
-              </div>
-              <div style="margin-top: 10px;">
-                <input style="float:left;" type="checkbox" name="loan" value="loan" >It's a loan
-                <input style="float:right;" id="loaned" name="loaned" placeholder="Loan recipient" type="text">
-              </div>
-              <a href="" id="addExp"><div class="color_bro" style="margin-top: 10px;">ADD</div></a>
-              </form>
-              </div>
+            <div id="dropdown2" class="inliner" style="display:none;">
+              <select style="">
+                <option value="total">Choose category</option>
+                <option value="wallet">Job</option>
+                <option value="creditcard">Scholarship</option>
+                <option value="creditcard">Pocket money</option>
+                <option value="creditcard">Stock</option>
+                <option value="creditcard">Other</option>
+              </select>
             </div>
-          </div>
-        </div>
-        <div class="pop" id="pop2">
-          <div class="popups color_lvio" id="popups2">
-          <form action="#" id="form" method="post" name="form">
-          <img id="close" src="close.png" class="close" onclick ="div_hide('pop2')">
-          <h2>My wallets</h2>
-          <hr>
-          <div align="left" style="overflow: auto;">
-            <div style="margin-top: 10px;"><input id="wallet1" name="wallet1" type="text" value="Wallet" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
-            <div style="margin-top: 10px;"><input id="wallet2" name="wallet2" type="text" value="Credit card" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
-            <div style="margin-top: 10px;"><input id="wallet3" name="wallet3" type="text" placeholder="Add a wallet" ><img id="check" class="icon" src="check.png" onclick =""></div>
-            <div align="center" style="margin-top: 10px;"><img id="add" class="icon" src="plus.png" onclick =""></div>              
-          </div>
-          </form>
-          </div>
-        </div>
-        <div class="pop" id="pop3">
-          <div class="popups color_lvio" id="popups3">
-          <form action="#" id="form" method="post" name="form">
-          <img id="close" src="close.png" class="close" onclick ="div_hide('pop3')">
-          <h2>My categories</h2>
-          <hr>
-          <div id="dropdown1" class="inliner" style="">
-            <select style="">
-              <option value="expcat">Expense categories</option>
-              <option value="inccat">Income categories</option>
-            </select>
-          </div>
-          <div align="left" style="overflow: auto;">
-            <div style="margin-top: 10px;"><input id="cat1" name="cat1" type="text" value="Food" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
-            <div style="margin-top: 10px;"><input id="cat2" name="cat2" type="text" value="Travel" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
-            <div style="margin-top: 10px;"><input id="cat3" name="cat3" type="text" value="Bills" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
-            <div style="margin-top: 10px;"><input id="cat4" name="cat4" type="text" value="Sports" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
-            <div style="margin-top: 10px;"><input id="cat5" name="cat5" type="text" value="Cosmetics" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
-            <div style="margin-top: 10px;"><input id="cat6" name="cat6" type="text" value="Other" ><img id="edit" class="icon" src="edit.png" onclick =""><img id="close" class="icon" src="close.png" onclick =""></div>
-            <div style="margin-top: 10px;"><input id="wallet3" name="wallet3" type="text" placeholder="Add a category" ><img id="check" class="icon" src="check.png" onclick =""></div>
-            <div align="center" style="margin-top: 10px;"><img id="add" class="icon" src="plus.png" onclick =""></div>              
-          </div>
-          </form>
-          </div>
-        </div>
-        <div class="pop" id="pop4">
-          <div class="popups color_lvio" id="popups4">
-          <form action="#" id="form" method="post" name="form">
-          <img id="close" src="close.png" class="close" onclick ="div_hide('pop4')">
-          <h2>Export</h2>
-          <hr>
-          <div align="left" style="overflow: scroll;">
-            <div style="margin-top: 10px;"><select>
-              <option value="nothing">choose file format for export</option>
-              <option value="txt">txt</option>
-            </select></div>
-            <div style="margin-top: 10px;"><input id="exportlocation" type="text" placeholder="Where to export?" ><div onclick="" style="display: inline-block; cursor: pointer; margin-left: 10px;">browse</div></div>
-            <div align="center" style="margin-top: 10px;" class="color_bro">EXPORT</div>              
-          </div>
-          </form>
-          </div>
-        </div>
-        <div class="pop" id="pop5">
-          <div class="popups color_lvio" id="popups5">
-          <form action="#" id="form" method="post" name="form">
-          <img id="close" src="close.png" class="close" onclick ="div_hide('pop5')">
-          <h2>Settings</h2>
-          <hr>
-          <div align="left" style="overflow: scroll;">
-            <div style="margin-top: 10px;">Currency <select style="float:right;">
-              <option value="dollar">$</option>
-              <option value="euro">€</option>
-            </select></div>
-            <div style="margin-top: 10px;">Decimal places <select style="float:right;">
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-            </select></div>
-            <div style="margin-top: 10px;">Decimal mark <select style="float:right;">
-              <option value="dot">.</option>
-              <option value="comma">,</option>
-            </select></div>
-            <div align="center" style="margin-top: 10px;" class="color_bro">SAVE</div>              
-          </div>
-          </form>
-          </div>
-        </div>
-        <div class="pop" id="pop6">
-          <div class="popups color_lvio" id="popups6">
-          <form action="#" id="form" method="post" name="form">
-          <img id="close" src="close.png" class="close" onclick ="div_hide('pop6')">
-          <h2>My profile</h2>
-          <hr>
-          <div align="left" style="overflow: scroll;">
-            <div style="margin-top: 10px;"><input id="username" type="text" value="User1" ><img id="edit" class="icon" src="edit.png" onclick =""></div>
-            <div style="margin-top: 10px;"><input id="e-mail" type="email" value="email@example.com" ><img id="edit" class="icon" src="edit.png" onclick =""></div>
-            <div style="margin-top: 10px;"><input id="pass1" type="password" placeholder="New password" ></div>
-            <div style="margin-top: 10px;"><input id="pass2" type="password" placeholder="Confirm new password" ><img id="edit" class="icon" src="check.png" onclick =""></div>
-            <div style="margin-top: 10px;">Avatar <img style="width: 30px; height: 30px;" id="avatar" src="human.png"><img id="edit" class="icon" src="edit.png" onclick =""></div>
-            <div align="center" style="margin-top: 10px;" class="color_bro">SAVE</div>              
-          </div>
-          </form>
-          </div>
-        </div>
-        <div class="pop" id="pop7">
-          <div class="popups color_lvio" id="popups7">
-          <form action="#" id="form" method="post" name="form">
-          <img id="close" src="close.png" class="close" onclick ="div_hide('pop7')">
-          <h2>New transaction</h2>
-          <hr>
-              <div id="dropdown1" style="margin-top: 10px;">
-                <select style="">
-                  <option value="total">Transaction between wallets</option>
-                  <option value="wallet">Expense</option>
-                  <option value="creditcard">Income</option>
-                </select>
-              </div>
-              <div id="dropdown1" style="margin-top: 10px;">From 
-                <select style="">
-                  <option value="total">Choose wallet</option>
-                  <option value="wallet">Wallet</option>
-                  <option value="creditcard">Credit card</option>
-                </select>
-              </div>
-              <div id="dropdown1" style="margin-top: 10px;">To
-                <select style="">
-                  <option value="total">Choose wallet</option>
-                  <option value="wallet">Wallet</option>
-                  <option value="creditcard">Credit card</option>
-                </select>
-              </div>
-              <div id="dropdown2" class="inliner" style="display:none;">
-                <select style="">
-                  <option value="total">Choose category</option>
-                  <option value="wallet">Food</option>
-                  <option value="creditcard">Travel</option>
-                  <option value="creditcard">Bills</option>
-                  <option value="creditcard">Sports</option>
-                  <option value="creditcard">Cosmetics</option>
-                  <option value="creditcard">Other</option>
-                </select>
-              </div>
-              <div id="dropdown2" class="inliner" style="display:none;">
-                <select style="">
-                  <option value="total">Choose category</option>
-                  <option value="wallet">Job</option>
-                  <option value="creditcard">Scholarship</option>
-                  <option value="creditcard">Pocket money</option>
-                  <option value="creditcard">Stock</option>
-                  <option value="creditcard">Other</option>
-                </select>
-              </div>
-              <div style="margin-top: 10px;"><input id="amount" name="amount" placeholder="Enter amount in $" type="number" min="" ></div>
-              <div style="margin-top: 10px;"><input id="expName" name="expName" placeholder="Name the transaction" type="text" ></div>
-              <div style="margin-top: 10px;"><input id="expDate" name="expDate" type="date" ></div>
-              <div style="margin-top: 10px;">
-                <input style="float:left;" type="checkbox" name="repeat" value="repetition" >Repeat the transaction 
-                <select style="float:right;">
-                  <option value="day">every day</option>
-                  <option value="month">every month</option>
-                  <option value="year">every year</option>
-                </select>
-              </div>
-              <div style="margin-top: 10px; display:none;">
-                <input style="float:left;" type="checkbox" name="loan" value="loan" >It's a loan
-                <input style="float:right;" id="loaned" name="loaned" placeholder="Loan recipient" type="text">
-              </div>
-              <div style="margin-top: 10px; display: none;">
-                <input style="float:left;" type="checkbox" name="debt" value="debt" >It's a debt
-                <input style="float:right;" id="indebt" name="indebt" placeholder="In debt to" type="text">
-              </div>
-              <a href="" id="addExp"><div class="color_bro" style="margin-top: 10px;">ADD</div></a>
-          </form>
-          </div>
-        </div>
-        <div class="pop" id="pop8">
-              <div class="popups color_lvio" id="popups8">
-              <form action="#" id="form" method="post" name="form">
-              <img id="close" src="close.png" class="close" onclick ="div_hide('pop8')">
-              <h2>New income</h2>
-              <hr>
-              <div id="dropdown1" class="inliner" style="">
-                <select style="">
-                  <option value="total">Choose wallet</option>
-                  <option value="wallet">Wallet</option>
-                  <option value="creditcard">Credit card</option>
-                </select>
-              </div>
-              <div id="dropdown2" class="inliner" style="">
-                <select style="">
-                  <option value="total">Choose category</option>
-                  <option value="wallet">Job</option>
-                  <option value="creditcard">Scholarship</option>
-                  <option value="creditcard">Pocket money</option>
-                  <option value="creditcard">Stock</option>
-                  <option value="creditcard">Other</option>
-                </select>
-              </div>
-              <div style="margin-top: 10px;"><input id="amount" name="amount" placeholder="Enter amount in $" type="number" min="" ></div>
-              <div style="margin-top: 10px;"><input id="incName" name="incName" placeholder="Name the income" type="text" ></div>
-              <div style="margin-top: 10px;"><input id="incDate" name="incDate" type="date" ></div>
-              <div style="margin-top: 10px;">
-                <input style="float:left;" type="checkbox" name="repeat" value="repetition" >Repeat the income
-                <select style="float:right;">
-                  <option value="day">every day</option>
-                  <option value="month">every month</option>
-                  <option value="year">every year</option>
-                </select>
-              </div>
-              <div style="margin-top: 10px;">
-                <input style="float:left;" type="checkbox" name="debt" value="debt" >It's a debt
-                <input style="float:right;" id="indebt" name="indebt" placeholder="In debt to" type="text">
-              </div>
-              <a href="" id="addInc"><div class="color_bro" style="margin-top: 10px;">ADD</div></a>
-              </form>
-              </div>
+            <div style="margin-top: 10px;"><input id="amount" name="amount" placeholder="Enter amount in $" type="number" min="" ></div>
+            <div style="margin-top: 10px;"><input id="expName" name="expName" placeholder="Name the transaction" type="text" ></div>
+            <div style="margin-top: 10px;"><input id="expDate" name="expDate" type="date" ></div>
+            <div style="margin-top: 10px;">
+              <input style="float:left;" type="checkbox" name="repeat" value="repetition" >Repeat the transaction 
+              <select style="float:right;">
+                <option value="day">every day</option>
+                <option value="month">every month</option>
+                <option value="year">every year</option>
+              </select>
             </div>
-        <div id="right" class="color_lvio" style="width: 98%; height: 220px; margin-top: 10px; padding-top: 5px;">
-          <div id="goals" style="width: 100%; height: 171px; overflow: auto;">
-            <div align="center" id="goal1" class="inliner color_vio" style="width: 29%; height: 110px; margin-top: 10px">
-              <div style="margin-top: 10px;">Computer</div>
-              <div class="color_yel" style="margin-top: 10px; width: 85%;">300$ out of 1200$</div>
-              <div class="color_bro" style="margin-top: 10px; width: 75%;">ADD TO GOAL</div>
+            <div style="margin-top: 10px; display:none;">
+              <input style="float:left;" type="checkbox" name="loan" value="loan" >It's a loan
+              <input style="float:right;" id="loaned" name="loaned" placeholder="Loan recipient" type="text">
             </div>
-            <div align="center" id="goal2" class="inliner color_vio" style="width: 29%; height: 110px; margin-top: 10px">
-              <div style="margin-top: 10px;">Car</div>
-              <div class="color_yel" style="margin-top: 10px; width: 85%;">1020$ out of 5000$</div>
-              <div class="color_bro" style="margin-top: 10px; width: 75%;">ADD TO GOAL</div>
+            <div style="margin-top: 10px; display: none;">
+              <input style="float:left;" type="checkbox" name="debt" value="debt" >It's a debt
+              <input style="float:right;" id="indebt" name="indebt" placeholder="In debt to" type="text">
             </div>
-            <div align="center" id="goal3" class="inliner color_vio" style="width: 29%; height: 110px; margin-top: 10px">
-              <div style="margin-top: 10px;">Flat</div>
-              <div class="color_yel" style="margin-top: 10px; width: 85%;">100500$ out of 370000$</div>
-              <div class="color_bro" style="margin-top: 10px; width: 75%;">ADD TO GOAL</div>
-            </div><br>
-            <div align="center" id="goal1" class="inliner color_vio" style="width: 29%; height: 110px; margin-top: 10px">
-              <div style="margin-top: 10px;">Summer vacation</div>
-              <div class="color_yel" style="margin-top: 10px; width: 85%;">0$ out of 1000$</div>
-              <div class="color_bro" style="margin-top: 10px; width: 75%;">ADD TO GOAL</div>
-            </div>
-            <div align="center" id="goal1" class="inliner color_vio" style="width: 29%; height: 110px; margin-top: 10px">
-              <div style="margin-top: 10px;">Savings</div>
-              <div class="color_yel" style="margin-top: 10px; width: 85%;">70$ out of 5000$</div>
-              <div class="color_bro" style="margin-top: 10px; width: 75%;">ADD TO GOAL</div>
-            </div>
-          </div>
-          <div align="center" class="color_bro" style="padding-left: 5px; margin-top:10px; padding-right: 5px; width: 30%; height: 20px; cursor:pointer;" onclick="div_show('pop')">NEW GOAL</div>
+            <a href="" id="addExp"><div class="color_bro" style="margin-top: 10px;">ADD</div></a>
+        </form>
         </div>
-        <br>
+      </div>
+
+      <div class="pop" id="pop8">
+        <div class="popups color_lvio" id="popups8">
+        <form action="#" id="form" method="post" name="form">
+        <img id="close" src="close.png" class="close" onclick ="div_hide('pop8')">
+        <h2>New income</h2>
+        <hr>
+        <div id="dropdown1" class="inliner" style="">
+          <select style="">
+            <option value="total">Choose wallet</option>
+            <option value="wallet">Wallet</option>
+            <option value="creditcard">Credit card</option>
+          </select>
+        </div>
+        <div id="dropdown2" class="inliner" style="">
+          <select style="">
+            <option value="total">Choose category</option>
+            <option value="wallet">Job</option>
+            <option value="creditcard">Scholarship</option>
+            <option value="creditcard">Pocket money</option>
+            <option value="creditcard">Stock</option>
+            <option value="creditcard">Other</option>
+          </select>
+        </div>
+        <div style="margin-top: 10px;"><input id="amount" name="amount" placeholder="Enter amount in $" type="number" min="" ></div>
+        <div style="margin-top: 10px;"><input id="incName" name="incName" placeholder="Name the income" type="text" ></div>
+        <div style="margin-top: 10px;"><input id="incDate" name="incDate" type="date" ></div>
+        <div style="margin-top: 10px;">
+          <input style="float:left;" type="checkbox" name="repeat" value="repetition" >Repeat the income
+          <select style="float:right;">
+            <option value="day">every day</option>
+            <option value="month">every month</option>
+            <option value="year">every year</option>
+          </select>
+        </div>
+        <div style="margin-top: 10px;">
+          <input style="float:left;" type="checkbox" name="debt" value="debt" >It's a debt
+          <input style="float:right;" id="indebt" name="indebt" placeholder="In debt to" type="text">
+        </div>
+        <a href="" id="addInc"><div class="color_bro" style="margin-top: 10px;">ADD</div></a>
+        </form>
+        </div>
+      </div>
+
+      <div class="pop" id="pop9">
+        <div class="popups color_lvio" id="popups9">
+        <form action="#" id="form" method="post" name="form">
+        <img id="close" src="close.png" class="close" onclick ="div_hide('pop9')">
+        <h2>Add to goal</h2>
+        <hr>
+        <div id="dropdown1" class="inliner" style="">
+          <select style="">
+            <option value="total">Choose wallet</option>
+            <option value="wallet">Wallet</option>
+            <option value="creditcard">Credit card</option>
+          </select>
+        </div>
+        <div style="margin-top: 10px;"><input id="amount" name="amount" placeholder="Enter amount in $" type="number" min="" ></div>
+        <div style="margin-top: 10px;"><input id="incDate" name="incDate" type="date" ></div>
+        <div style="margin-top: 10px;">
+          <input style="float:left;" type="checkbox" name="repeat" value="repetition" >Repeat the income
+          <select style="float:right;">
+            <option value="day">every day</option>
+            <option value="month">every month</option>
+            <option value="year">every year</option>
+          </select>
+        </div>
+        <a href="" id="addInc"><div class="color_bro" style="margin-top: 10px;">ADD</div></a>
+        </form>
+        </div>
+      </div>
+
+      <div class="pop" id="pop10">
+        <div class="popups color_lvio" id="popups9">
+        <form action="#" id="form" method="post" name="form">
+        <img id="close" src="close.png" class="close" onclick ="div_hide('pop10')">
+        <h2>New goal</h2>
+        <hr>
+        <div style="margin-top: 10px;"><input id="goalName" name="goalName" placeholder="Name your goal" type="text" ></div>
+        <div style="margin-top: 10px;"><input id="amount" name="amount" placeholder="Enter goal amount in $" type="number" min="" ></div>
+        <div style="margin-top: 10px;">Deadline <input id="goalDate" name="goalDate" type="date" ></div>
+        <div style="margin-top: 10px;">
+          <input style="float:left;" type="checkbox" name="repeat" value="repetition" >Monthly auto-saving 
+          <select style="float:right;">
+            <option value="day">every day</option>
+            <option value="month">every month</option>
+            <option value="year">every year</option>
+          </select>
+        </div>
+        <a href="" id="addInc"><div class="color_bro" style="margin-top: 10px;">ADD</div></a>
+        </form>
+        </div>
       </div>
     </div>
   </body>
