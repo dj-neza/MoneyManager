@@ -2,7 +2,9 @@
     box-sizing: border-box;
 }
 body { 
-	height: 100%; color:  #220800; font-family: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif; 
+	height: 100%; 
+	color:  #220800; 
+	font-family: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif; 
 }
 html { 
     background: url(ozadje.png) no-repeat center center fixed; 
