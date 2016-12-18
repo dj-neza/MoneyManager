@@ -2,14 +2,13 @@
     box-sizing: border-box;
 }
 body { 
-	height: 100%; color:  #220800; font-family: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif; 
+	height: 100%; 
+	color:  #220800; 
+	font-family: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif; 
 }
 html { 
     background: url(ozadje.png) no-repeat center center fixed; 
     background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
 }
 a {
 	color:  #220800;
@@ -21,6 +20,11 @@ form {
 }
 input {
 	font-family: "Open Sans", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+table {
+	margin-top:1px; 
+	width:100%; 
+	height: 100%;
 }
 
 /* displaying stuff */
@@ -47,17 +51,154 @@ input {
 .color_bro {
 	background-color: #ceb4a1; 
 }
-.div_button, .div_buttonL {
+.div_button, .div_buttonL, .pointer {
 	cursor: pointer;
 }
 
-/* margins, paddings */
+/* margins, paddings, design */
 .pad_r10 {
 	padding-right: 10px;
+}
+.pad_t50b50 {
+	padding-top: 50px; 
+	padding-bottom: 50px;
+}
+.pad_l5 {
+	padding-left: 5px;
+}
+.pad_t5 {
+	padding-top: 5px;
+}
+.pad_r5 {
+	padding-right: 5px;
+}
+.pad_t10 {
+	padding-top: 10px;
+}
+.pad_5 {
+	padding: 5px;
+}
+.pad_10 {
+	padding: 10px;
 }
 .mar_r20l20 {
 	margin-left: 20px;
 	margin-right: 20px;
+}
+.mar_t10 {
+	margin-top: 10px;
+}
+.mar_5 {
+	margin: 5px;
+}
+.mar_t30 {
+	margin-top: 30px;
+}
+.mar_t5 {
+	margin-top: 5px;
+}
+.mar_l10 {
+	margin-left: 10px;
+}
+.mar_b10 {
+	margin-bottom: 10px;
+}
+.mar_r10 {
+	margin-right: 10px;
+}
+
+.max_110 {
+	max-width: 110px;
+}
+.h_25 {
+	height: 25px;
+}
+.h_50 {
+	height: 50px;
+}
+.h_100 {
+	height: 100px;
+}
+.w-95 {
+	width: 95%;
+}
+
+.bold {
+	font-weight: bold;
+}
+.over_a {
+	overflow: auto;
+}
+.f_right {
+	float: right;
+}
+
+.avatar {
+	width: 30px;
+	height: 30px;
+} 
+.tabs {
+	height: 30px; 
+	border: 1px solid #cbb7c3;
+}
+.table_around {
+	width: 98%; 
+	height: 151px;
+}
+.content {
+	width: 98%; 
+	height: 220px;
+}
+.content_drop {
+	width: 100%; 
+	height: 20px;
+}
+.user {
+	width: 100%;
+	height: 100%;
+}
+.add_buttons {
+	min-width: 125px; 
+	width: 30px; 
+	height: 20px;
+}
+.goal_big {
+	width: 100%; 
+	height: 171px;
+}
+.goal_med {
+	height: 110px;
+}
+.goal_amount {
+	width: 85%; 
+	min-width: 180px;
+}
+.goal_but {
+	width: 75%;
+}
+.verti_mid {
+	vertical-align: middle;
+}
+#footer { 
+    background:#f5e5bc;
+	width:100%;
+	height:40px;
+	position:absolute;
+	bottom:0;
+	left:0;
+}
+.body_div1 {
+	position: relative; 
+	min-height: 100%;
+}
+.body_div2 {
+	padding-bottom: 40px;
+}
+.alignment {
+	text-align: center;
+}
+.alignmentL {
+	text-align: left;
 }
 
 /* toggle stuff */
