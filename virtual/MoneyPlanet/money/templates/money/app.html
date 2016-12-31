@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MoneyPlan(e)t</title>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% load static %}
+    <script type="text/javascript" src="{%static 'js/script.js' %}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="body_div1"> 
+      <div class="body_div2">
+        <div id="row" class="h_50 alignment">
+          <a href="#menu" id="toggle" class=""><span></span></a>
+          <div id="menu" class="menu_toggle">
+            <div id="manW" class="color_lvio div_button h_25 w-95 alignment" onclick="div_show('pop2')">Manage wallets</div><br>
+            <div id="manC" class="color_lvio div_button h_25 w-95 alignment" onclick="div_show('pop3')">Manage categories</div><br>
+            <div id="export" class="color_lvio div_button h_25 w-95 alignment" onclick="div_show('pop4')">Export data</div><br>
+            <div onclick="div_show('pop5')" id="settings" class="color_lvio div_button h_25 w-95 alignment">Settings</div>
+          </div>
+          <div id="logoMini" class="inliner" >
+            {% load static %}
+            <img src='{% static "img/Logo_color.png" %}' alt="MoneyPlan(e)t" class="h_50">
+          </div>
+          <a href="#menu2" id="toggle2" class="">
+            {% load static %}
+            <img src='{% static "img/human.png" %}' alt="User" class="user">
+          </a>
+          <div id="menu2" class="menu_toggle2">
+            <div id="profile" class="color_lvio div_button h_25 w-95 alignment" onclick="div_show('pop6')">Profile settings</div><br>
+            <div id="logout" class="color_lvio div_button h_25 w-95 alignment">Log out</div>
+          </div>
+        </div>
+        <div class="mar_t30 bold alignment">BALANCE
+          <div id="balance" class="color_bro row" >
+            <div class="col-4 col-m-3"></div>
+            <div id="drop" class="col-3 col-m-4 inliner color_yel mar_t10 mar_b10" >
+              <select >
+                <option value="total">Total</option>
+                <option value="wallet">Wallet</option>
+                <option value="creditcard">Credit card</option>
+              </select>
+              <div id="total" class="inliner pad_10" >400 $</div>
+            </div>
+            <div id="transaction" class="color_yel div_buttonL col-2 col-m-3 col-s-1 inliner mar_t10 mar_r10 mar_l10 pad_5" onclick="div_show('pop7')">New transaction</div>
+            <div class="col-3 col-m-2"></div>
+          </div>
+          <div id="category" class="row mar_t30" >
+            <div class="col-1 col-m-1"></div>
+            <div id="exp" class="col-2-5 col-m-2-5 col-s-4 aktiven div_button inliner tabs" >Expenses</div>
+            <div id="inc" class="col-2-5 col-m-2-5 col-s-4 neaktivn div_button inliner tabs" >Incomes</div>
+            <div id="goal" class="col-2-5 col-m-2-5 col-s-4 neaktivn div_button inliner tabs" >Goals</div>
+            <div id="stat" class="col-2-5 col-m-2-5 col-s-4 neaktivn div_button inliner tabs" >Statistics</div>
+            <div class="col-1 col-m-1"></div>
+          </div>
+          <div class="row">
+            <div class="col-1 col-m-1"></div>
+            <div id="content" class="col-10 col-m-10 color_vio pad_t10" >
+
+              <div id="expensecontent" class="color_lvio pad_t5 pad_2 content" >
+                <div class="mar_b10 content_drop" >
+                  <div id="dropdown1" class="inliner">
+                    <select >
+                      <option value="total">All wallets</option>
+                      <option value="wallet">Wallet</option>
+                      <option value="creditcard">Credit card</option>
+                    </select>
+                  </div>
+                  <div id="dropdown2" class="inliner" >
+                    <select >
+                      <option value="total">All categories</option>
+                      <option value="wallet">Food</option>
+                      <option value="creditcard">Travel</option>
+                      <option value="creditcard">Bills</option>
+                      <option value="creditcard">Sports</option>
+                      <option value="creditcard">Cosmetics</option>
+                      <option value="creditcard">Clothes</option>
+                      <option value="creditcard">Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="over_a table_around"><table>
+                  <tr id="e1" class="color_vio h_25 mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Coffee with friends</td>
+                    <td class="h_25">Food</td>
+                    <td class="h_25">1.3$</td>
+                    <td class="h_25">20.1.2016</td>
+                    <td class="h_25">edit</td>
+                    <td class="h_25">remove</td>
+                  </tr>
+                  <tr id="e2" class="color_vio mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Groceries</td>
+                    <td class="h_25" >Food</td>
+                    <td class="h_25" >12$</td>
+                    <td class="h_25" >2.4.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                  <tr id="e3" class="color_vio mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Lunch</td>
+                    <td class="h_25" >Food</td>
+                    <td class="h_25" >3.75$</td>
+                    <td class="h_25" >1.2.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                  <tr id="e4" class="color_vio mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Scarf and gloves</td>
+                    <td class="h_25" >Clothes</td>
+                    <td class="h_25" >19.99$</td>
+                    <td class="h_25" >17.3.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                  <tr id="e5" class="color_vio mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Phone bill</td>
+                    <td class="h_25" >Bills</td>
+                    <td class="h_25" >15.6$</td>
+                    <td class="h_25" >30.5.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                  <tr id="e6" class="color_vio mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Phone bill</td>
+                    <td class="h_25" >Bills</td>
+                    <td class="h_25" >15.6$</td>
+                    <td class="h_25" >30.6.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                  <tr id="e7" class="color_vio mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Phone bill</td>
+                    <td class="h_25" >Bills</td>
+                    <td class="h_25" >15.6$</td>
+                    <td class="h_25" >30.7.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                  <tr id="e8" class="color_vio mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Phone bill</td>
+                    <td class="h_25" >Bills</td>
+                    <td class="h_25" >15.6$</td>
+                    <td class="h_25" >30.8.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                </table></div>
+                <div>
+                  <div class="color_bro mar_t10 pointer pad_l5 pad_r5 add_buttons alignment" onclick="div_show('pop')">ADD EXPENSE</div>
+                </div>  
+              </div>
+
+              <div id="incomecontent" class="color_lvio neviden pad_t5 content">
+                <div class="mar_b10 content_drop">
+                  <div id="dropdown11" class="inliner" >
+                    <select >
+                      <option value="total">All wallets</option>
+                      <option value="wallet">Wallet</option>
+                      <option value="creditcard">Credit card</option>
+                    </select>
+                  </div>
+                  <div id="dropdown22" class="inliner" >
+                    <select >
+                      <option value="total">Choose category</option>
+                      <option value="wallet">Job</option>
+                      <option value="creditcard">Scholarship</option>
+                      <option value="creditcard">Pocket money</option>
+                      <option value="creditcard">Stock</option>
+                      <option value="creditcard">Other</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="over_a table_around"><table>
+                  <tr id="i1" class="color_vio h_25 mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Job december</td>
+                    <td class="h_25" >Job</td>
+                    <td class="h_25" >1300$</td>
+                    <td class="h_25" >20.1.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                  <tr id="i2" class="color_vio mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Scholarship march</td>
+                    <td class="h_25" >Scholarship</td>
+                    <td class="h_25" >120$</td>
+                    <td class="h_25" >2.4.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                  <tr id="i3" class="color_vio mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Pocketmoney</td>
+                    <td class="h_25" >Pocket money</td>
+                    <td class="h_25" >30$</td>
+                    <td class="h_25" >1.2.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                  <tr id="i4" class="color_vio mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Job february</td>
+                    <td class="h_25" >Job</td>
+                    <td class="h_25" >999$</td>
+                    <td class="h_25" >17.3.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                  <tr id="i5" class="color_vio mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Scholarhip april</td>
+                    <td class="h_25" >Scholarship</td>
+                    <td class="h_25" >120$</td>
+                    <td class="h_25" >30.5.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                  <tr id="i6" class="color_vio mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Job may</td>
+                    <td class="h_25" >Job</td>
+                    <td class="h_25" >1056$</td>
+                    <td class="h_25" >30.6.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                  <tr id="i7" class="color_vio mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Scholarhip summer</td>
+                    <td class="h_25" >Scholarship</td>
+                    <td class="h_25" >120$</td>
+                    <td class="h_25" >30.7.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                  <tr id="i8" class="color_vio mar_t5" >
+                    <td class="color_yel h_25 bold alignment" >Summer money</td>
+                    <td class="h_25" >Pocket money</td>
+                    <td class="h_25" >500$</td>
+                    <td class="h_25" >30.8.2016</td>
+                    <td class="h_25" >edit</td>
+                    <td class="h_25" >remove</td>
+                  </tr>
+                </table></div>
+                <div>
+                  <div class="color_bro mar_t10 pointer pad_l5 pad_r5 add_buttons alignment" onclick="div_show('pop8')">ADD INCOME</div>
+                </div>  
+              </div>
+
+              <div id="goalscontent" class="color_lvio neviden mar_t10 pad_t5 content" >
+                <div id="goals" class="row over_a goal_big" >
+                  <div id="goal1" class="col-4 col-m-6 inliner alignment" >
+                    <div class="color_vio mar_5 pad_t5 goal_med" >
+                      <div class="mar_t10">Computer</div>
+                      <div class="color_yel mar_t10 goal_amount" >300$ out of 1200$</div>
+                      <div class="color_bro mar_t10 pointer goal_but" onclick ="div_show('pop9')">ADD TO GOAL</div>
+                    </div>
+                  </div>
+                  <div id="goal2" class="col-4 col-m-6 inliner alignment" >
+                    <div class="color_vio mar_5 pad_t5 goal_med" >
+                      <div class="mar_t10">Car</div>
+                      <div class="color_yel mar_t10 goal_amount" >1020$ out of 5000$</div>
+                      <div class="color_bro mar_t10 pointer goal_but" onclick ="div_show('pop9')">ADD TO GOAL</div>
+                    </div>
+                  </div>
+                  <div id="goal3" class="col-4 col-m-6 inliner alignment" >
+                    <div class="color_vio mar_5 pad_t5 goal_med" >
+                      <div class="mar_t10">Flat</div>
+                      <div class="color_yel mar_t10 goal_amount" >100500$ out of 370000$</div>
+                      <div class="color_bro mar_t10 pointer goal_but" onclick ="div_show('pop9')">ADD TO GOAL</div>
+                    </div>
+                  </div>
+                  <div id="goal4" class="col-4 col-m-6 inliner alignment" >
+                    <div class="color_vio mar_5 pad_t5 goal_med" >
+                      <div class="mar_t10">Summer vacation</div>
+                      <div class="color_yel mar_t10 goal_amount" >0$ out of 1000$</div>
+                      <div class="color_bro mar_t10 pointer goal_but" onclick ="div_show('pop9')">ADD TO GOAL</div>
+                    </div>
+                  </div>
+                  <div id="goal5" class="col-4 col-m-6 inliner alignment" >
+                    <div class="color_vio mar_5 pad_t5 goal_med" >
+                      <div class="mar_t10">Savings</div>
+                      <div class="color_yel mar_t10 goal_amount" >70$ out of 5000$</div>
+                      <div class="color_bro mar_t10 pointer goal_but" onclick ="div_show('pop9')">ADD TO GOAL</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="color_bro mar_t10 pointer pad_l5 pad_r5 add_buttons alignment" onclick="div_show('pop10')">NEW GOAL</div>
+              </div>
+              <div id="statscontent" class="color_lvio neviden mar_t10 pad_t5 content verti_mid" >statistike trenutno niso na voljo</div>
+            </div>
+            <div class="col-1 col-m-1"></div>
+            <br>
+          </div>
+        </div>
+
+        <div class="alignment">
+          <div class="pop row" id="pop">
+            <div class="col-3 col-m-2"></div>
+            <div class="popups color_lvio col-5 col-m-7" id="popups">
+              <form action="#" id="form1" method="post" name="form">
+                {% load static %}
+                <img src='{% static "img/close.png" %}' alt="Close" class="close" onclick ="div_hide('pop')">
+                <h2>New expense</h2>
+                <hr>
+                <div id="dropdown111">
+                  <select >
+                    <option value="total">Choose wallet</option>
+                    <option value="wallet">Wallet</option>
+                    <option value="creditcard">Credit card</option>
+                  </select>
+                </div>
+                <div id="dropdown222" class="mar_t10">
+                  <select >
+                    <option value="total">Choose category</option>
+                    <option value="wallet">Food</option>
+                    <option value="creditcard">Travel</option>
+                    <option value="creditcard">Bills</option>
+                    <option value="creditcard">Sports</option>
+                    <option value="creditcard">Cosmetics</option>
+                    <option value="creditcard">Other</option>
+                  </select>
+                </div>
+                <div class="mar_t10"><input name="amount" placeholder="Enter amount in $" type="number" ></div>
+                <div class="mar_t10"><input name="expName" placeholder="Name the expense" type="text" ></div>
+                <div class="mar_t10">When? <input name="expDate" type="date"></div>
+                <div class="mar_t10"><input type="checkbox" name="repeat" value="repetition" >Repeat the expense</div>
+                <div class="mar_t10">
+                  <select>
+                    <option value="day">every day</option>
+                    <option value="month">every month</option>
+                    <option value="year">every year</option>
+                  </select>
+                </div>
+                <div class="mar_t10"><input type="checkbox" name="loan" value="loan" >It's a loan</div>
+                <div class="mar_t10"><input name="loaned" placeholder="Loan recipient" type="text"></div>
+                <div class="color_bro mar_t10">ADD</div>
+              </form>
+            </div>
+            <div class="col-4 col-m-3"></div>
+          </div>
+
+          <div class="pop" id="pop2">
+            <div class="col-3 col-m-2"></div>
+            <div class="popups color_lvio col-5 col-m-7" id="popups2">
+              <form action="#" id="form2" method="post" name="form">
+                {% load static %}
+                <img src='{% static "img/close.png" %}' alt="Close" class="close" onclick ="div_hide('pop2')">
+                <h2>My wallets</h2>
+                <hr>
+                <div class="over_a alignmentL">
+                  <div class="mar_t10"><input id="wallet1" name="wallet1" type="text" value="Wallet" ><img class="icon" alt="Edit" src="img/edit.png" onclick ="">
+                    {% load static %}
+                    <img src='{% static "img/close.png" %}' alt="Remove" class="close" onclick="">
+                  </div>
+                  <div class="mar_t10"><input id="wallet2" name="wallet2" type="text" value="Credit card" ><img class="icon" alt="Edit" src="img/edit.png" onclick ="">
+                    {% load static %}
+                    <img src='{% static "img/close.png" %}' alt="Remove" class="close" onclick="">
+                  </div>
+                  <div class="mar_t10"><input name="wallet3" type="text" placeholder="Add a wallet" ><img alt="Add" class="icon" src="img/check.png" onclick =""></div>
+                  <div class="mar_t10 alignment"><img class="icon" alt="Add more" src="img/plus.png" onclick =""></div>              
+                </div>
+              </form>
+            </div>
+            <div class="col-4 col-m-3"></div>
+          </div>
+
+          <div class="pop" id="pop3">
+            <div class="col-3 col-m-2"></div>
+            <div class="popups color_lvio col-5 col-m-7" id="popups3">
+              <form action="#" id="form3" method="post" name="form">
+                {% load static %}
+                <img src='{% static "img/close.png" %}' alt="Close" class="close" onclick="div_hide('pop3')">
+                <h2>My categories</h2>
+                <hr>
+                <div id="dropdown1111" class="inliner" >
+                  <select id="managing">
+                    <option value="1">Expense categories</option>
+                    <option value="2">Income categories</option>
+                  </select>
+                </div>
+                <div id="manex" class="over_a alignmentL" >
+                  <div class="mar_t10"><input id="cat1" name="cat1" type="text" value="Food" ><img class="icon" alt="Edit" src="img/edit.png" onclick ="">
+                    {% load static %}
+                    <img src='{% static "img/close.png" %}' alt="Remove" class="close" onclick="">
+                  </div>
+                  <div class="mar_t10"><input id="cat2" name="cat2" type="text" value="Travel" ><img class="icon" alt="Edit" src="img/edit.png" onclick ="">
+                    {% load static %}
+                    <img src='{% static "img/close.png" %}' alt="Remove" class="close" onclick="">
+                  </div>
+                  <div class="mar_t10"><input id="cat3" name="cat3" type="text" value="Bills" ><img class="icon" alt="Edit" src="img/edit.png" onclick ="">
+                    {% load static %}
+                    <img src='{% static "img/close.png" %}' alt="Remove" class="close" onclick="">
+                  </div>
+                  <div class="mar_t10"><input id="cat4" name="cat4" type="text" value="Sports" ><img alt="Edit" class="icon" src="img/edit.png" onclick =""><img alt="Remove" class="icon" src="img/close.png" onclick =""></div>
+                  <div class="mar_t10"><input id="cat5" name="cat5" type="text" value="Cosmetics" ><img alt="Edit" class="icon" src="img/edit.png" onclick =""><img alt="Remove" class="icon" src="img/close.png" onclick =""></div>
+                  <div class="mar_t10"><input id="cat6" name="cat6" type="text" value="Other" ><img alt="Edit" class="icon" src="img/edit.png" onclick =""><img class="icon" alt="Remove" src="img/close.png" onclick =""></div>
+                  <div class="mar_t10"><input name="wallet3" type="text" placeholder="Add a category" ><img alt="Add" class="icon" src="img/check.png" onclick =""></div>
+                  <div class="mar_t10 alignment"><img alt="Add more" class="icon" src="img/plus.png" onclick =""></div>              
+                </div>
+                <div class="neviden over_a alignmentL" id="manin" >
+                  <div class="mar_t10"><input id="cat11" name="cat1" type="text" value="Job" ><img alt="Edit" class="icon" src="img/edit.png" onclick =""><img alt="Remove" class="icon" src="img/close.png" onclick =""></div>
+                  <div class="mar_t10"><input id="cat22" name="cat2" type="text" value="Scholarship" ><img alt="Edit" class="icon" src="img/edit.png" onclick =""><img alt="Remove" class="icon" src="img/close.png" onclick =""></div>
+                  <div class="mar_t10"><input id="cat33" name="cat3" type="text" value="Pocket money" ><img alt="Edit" class="icon" src="img/edit.png" onclick =""><img alt="Remove" class="icon" src="img/close.png" onclick =""></div>
+                  <div class="mar_t10"><input id="cat44" name="cat4" type="text" value="Stock" ><img alt="Edit" class="icon" src="img/edit.png" onclick =""><img class="icon" alt="Remove" src="img/close.png" onclick =""></div>
+                  <div class="mar_t10"><input id="cat55" name="cat6" type="text" value="Other" ><img alt="Edit" class="icon" src="img/edit.png" onclick =""><img class="icon" alt="Remove" src="img/close.png" onclick =""></div>
+                  <div class="mar_t10"><input name="wallet3" type="text" placeholder="Add a category" ><img id="check" alt="Add" class="icon" src="img/check.png" onclick =""></div>
+                  <div class="alignment mar_t10"><img alt="Add more" class="icon" src="img/plus.png" onclick =""></div>              
+                </div>
+              </form>
+            </div>
+            <div class="col-4 col-m-3"></div>
+          </div>
+
+          <div class="pop" id="pop4">
+            <div class="col-3 col-m-2"></div>
+            <div class="popups color_lvio col-5 col-m-7" id="popups4">
+              <form action="#" id="form4" method="post" name="form">
+                <img src="img/close.png" alt="Close" class="close" onclick ="div_hide('pop4')">
+                <h2>Export</h2>
+                <hr>
+                <div class="over_a alignmentL">
+                  <div class="mar_t10"><select>
+                    <option value="nothing">choose file format for export</option>
+                    <option value="txt">txt</option>
+                  </select></div>
+                  <div class="mar_t10"><input id="exportlocation" type="text" placeholder="Where to export?" ><div class="inliner pointer mar_l10" onclick="">browse</div></div>
+                  <div class="color_bro mar_t10 alignment">EXPORT</div>              
+                </div>
+              </form>
+            </div>
+            <div class="col-4 col-m-3"></div>
+          </div>
+
+          <div class="pop" id="pop5">
+            <div class="col-3 col-m-2"></div>
+            <div class="popups color_lvio col-5 col-m-7" id="popups5">
+              <form action="#" id="form5" method="post" name="form">
+                <img src="img/close.png"  alt="Close" class="close" onclick ="div_hide('pop5')">
+                <h2>Settings</h2>
+                <hr>
+                <div class="over_a alignmentL">
+                  <div class="mar_t10">Currency <select class="f_right" >
+                    <option value="dollar">$</option>
+                    <option value="euro">€</option>
+                  </select></div>
+                  <div class="mar_t10">Decimal places <select class="f_right">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                  </select></div>
+                  <div class="mar_t10">Decimal mark <select class="f_right">
+                    <option value="dot">.</option>
+                    <option value="comma">,</option>
+                  </select></div>
+                  <div class="color_bro mar_t10 alignment">SAVE</div>              
+                </div>
+              </form>
+            </div>
+            <div class="col-4 col-m-3"></div>
+          </div>
+
+          <div class="pop" id="pop6">
+            <div class="col-3 col-m-2"></div>
+            <div class="popups color_lvio col-5 col-m-7" id="popups6">
+              <form action="#" id="form6" method="post" name="form">
+                <img src="img/close.png"  alt="Close" class="close" onclick ="div_hide('pop6')">
+                <h2>My profile</h2>
+                <hr>
+                <div class="over_a alignmentL">
+                  <div class="mar_t10">Change username</div>
+                  <div class="mar_t10"><input id="username" type="text" value="User1" ><img alt="Edit" class="icon" src="img/edit.png" onclick =""></div>
+                  <div class="mar_t10">Change e-mail</div>
+                  <div class="mar_t10"><input id="e-mail" type="email" value="email@example.com" ><img alt="Edit" class="icon" src="img/edit.png" onclick =""></div>
+                  <div class="mar_t10"><input id="pass1" type="password" placeholder="New password" ></div>
+                  <div class="mar_t10"><input id="pass2" type="password" placeholder="Confirm new password" ><img alt="Change" class="icon" src="img/check.png" onclick =""></div>
+                  <div class="mar_t10">Avatar <img class="avatar" id="avatar" alt="Picture" src="img/human.png"><img alt="Change" class="icon" src="img/edit.png" onclick =""></div>
+                  <div class="color_bro mar_t10 alignment">SAVE</div>              
+                </div>
+              </form>
+            </div>
+            <div class="col-4 col-m-3"></div>
+          </div>
+
+          <div class="pop" id="pop7">
+            <div class="col-3 col-m-2"></div>
+            <div class="popups color_lvio col-5 col-m-7" id="popups7">
+              <form action="#" id="form7" method="post" name="form">
+                <img src="img/close.png" alt="Close" class="close" onclick ="div_hide('pop7')">
+                <h2>New transaction</h2>
+                <hr>
+                <div id="transactiontype" class="mar_t10">
+                  <select id="transactions" >
+                    <option value="1">Transaction between wallets</option>
+                    <option value="2">Expense</option>
+                    <option value="3">Income</option>
+                  </select>
+                </div>
+                <div id="from" class="mar_t10 ">From 
+                  <select >
+                    <option value="total">Choose wallet</option>
+                    <option value="wallet">Wallet</option>
+                    <option value="creditcard">Credit card</option>
+                  </select>
+                </div>
+                <div id="to" class="mar_t10 ">To
+                  <select >
+                    <option value="total">Choose wallet</option>
+                    <option value="wallet">Wallet</option>
+                    <option value="creditcard">Credit card</option>
+                  </select>
+                </div>
+                <div id="excat" class="inliner neviden mar_t10 ">
+                  <select >
+                    <option value="total">Choose category</option>
+                    <option value="wallet">Food</option>
+                    <option value="creditcard">Travel</option>
+                    <option value="creditcard">Bills</option>
+                    <option value="creditcard">Sports</option>
+                    <option value="creditcard">Cosmetics</option>
+                    <option value="creditcard">Other</option>
+                  </select>
+                </div>
+                <div id="incat" class="inliner neviden mar_t10 ">
+                  <select >
+                    <option value="total">Choose category</option>
+                    <option value="wallet">Job</option>
+                    <option value="creditcard">Scholarship</option>
+                    <option value="creditcard">Pocket money</option>
+                    <option value="creditcard">Stock</option>
+                    <option value="creditcard">Other</option>
+                  </select>
+                </div>
+                <div class="mar_t10"><input name="amount" placeholder="Enter amount in $" type="number" ></div>
+                <div class="mar_t10"><input name="expName" placeholder="Name the transaction" type="text" ></div>
+                <div class="mar_t10">When? <input name="expDate" type="date"></div>
+                <div class="mar_t10"><input type="checkbox" name="repeat" value="repetition" >Repeat the transaction</div>
+                <div class="mar_t10">
+                  <select>
+                    <option value="day">every day</option>
+                    <option value="month">every month</option>
+                    <option value="year">every year</option>
+                  </select>
+                </div>
+                <div class="neviden mar_t10 " id="loan1" ><input type="checkbox" name="loan" value="loan" >It's a loan</div>
+                <div class="neviden mar_t10 " id="loan2" ><input name="loaned" placeholder="Loan recipient" type="text"></div>
+                <div class="neviden mar_t10 " id="debt1" ><input type="checkbox" name="debt" value="debt" >It's a debt</div>
+                <div class="neviden mar_t10 " id="debt2" ><input name="indebt" placeholder="In debt to" type="text"></div>
+                <div class="color_bro mar_t10">ADD</div>
+              </form>
+            </div>
+            <div class="col-4 col-m-3"></div>
+          </div>
+
+          <div class="pop" id="pop8">
+            <div class="col-3 col-m-2"></div>
+            <div class="popups color_lvio col-5 col-m-7" id="popups8">
+              <form action="#" id="form8" method="post" name="form">
+                <img src="img/close.png" alt="Close" class="close" onclick ="div_hide('pop8')">
+                <h2>New income</h2>
+                <hr>
+                <div id="dropdown11111" class="inliner" >
+                  <select >
+                    <option value="total">Choose wallet</option>
+                    <option value="wallet">Wallet</option>
+                    <option value="creditcard">Credit card</option>
+                  </select>
+                </div>
+                <div id="dropdown2222" class="inliner" >
+                  <select >
+                    <option value="total">Choose category</option>
+                    <option value="wallet">Job</option>
+                    <option value="creditcard">Scholarship</option>
+                    <option value="creditcard">Pocket money</option>
+                    <option value="creditcard">Stock</option>
+                    <option value="creditcard">Other</option>
+                  </select>
+                </div>
+                <div class="mar_t10"><input name="amount" placeholder="Enter amount in $" type="number" ></div>
+                <div class="mar_t10"><input id="incName" name="incName" placeholder="Name the income" type="text" ></div>
+                <div class="mar_t10">When? <input name="incDate" type="date"></div>
+                <div class="mar_t10"><input type="checkbox" name="repeat" value="repetition" >Repeat the income</div>
+                <div class="mar_t10">
+                  <select>
+                    <option value="day">every day</option>
+                    <option value="month">every month</option>
+                    <option value="year">every year</option>
+                  </select>
+                </div>
+                <div class="mar_t10"><input type="checkbox" name="debt" value="debt" >It's a debt</div>
+                <div class="mar_t10"><input name="indebt" placeholder="In debt to" type="text"></div>
+                <div class="color_bro mar_t10">ADD</div>
+              </form>
+            </div>
+            <div class="col-4 col-m-3"></div>
+          </div>
+
+          <div class="pop" id="pop9">
+            <div class="col-3 col-m-2"></div>
+            <div class="popups color_lvio col-5 col-m-7" id="popups9">
+              <form action="#" id="form9" method="post" name="form">
+                <img src="img/close.png" alt="Close" class="close" onclick ="div_hide('pop9')">
+                <h2>Add to goal</h2>
+                <hr>
+                <div id="dropdown12" class="inliner" >
+                  <select >
+                    <option value="total">Choose wallet</option>
+                    <option value="wallet">Wallet</option>
+                    <option value="creditcard">Credit card</option>
+                  </select>
+                </div>
+                <div class="mar_t10"><input name="amount" placeholder="Enter amount in $" type="number" ></div>
+                <div class="mar_t10">When? <input name="incDate" type="date"></div>
+                <div class="mar_t10"><input type="checkbox" name="repeat" value="repetition" >Repeat</div>
+                <div class="mar_t10">
+                  <select>
+                    <option value="day">every day</option>
+                    <option value="month">every month</option>
+                    <option value="year">every year</option>
+                  </select>
+                </div>
+                <div class="color_bro mar_t10">ADD</div>
+              </form>
+            </div>
+            <div class="col-4 col-m-3"></div>
+          </div>
+
+          <div class="pop" id="pop10">
+            <div class="col-3 col-m-2"></div>
+            <div class="popups color_lvio col-5 col-m-7" id="popups10">
+              <form action="#" id="form10" method="post" name="form">
+                <img src="img/close.png" alt="Close" class="close" onclick ="div_hide('pop10')">
+                <h2>New goal</h2>
+                <hr>
+                <div class="mar_t10"><input id="goalName" name="goalName" placeholder="Name your goal" type="text" ></div>
+                <div class="mar_t10"><input name="amount" placeholder="Enter goal amount in $" type="number" ></div>
+                <div class="mar_t10">Deadline <input id="goalDate" name="goalDate" type="date"></div>
+                <div class="mar_t10"><input type="checkbox" name="repeat" value="repetition" >Monthly auto-saving</div>
+                <div class="mar_t10">
+                  <select>
+                    <option value="day">every day</option>
+                    <option value="month">every month</option>
+                    <option value="year">every year</option>
+                  </select>
+                </div>
+                <div class="color_bro mar_t10" >ADD</div>
+              </form>
+            </div>
+            <div class="col-4 col-m-3"></div>
+          </div>
+        </div>
+      </div>
+      <div id="footer" class="alignment">
+        <div>Author: Neža Đukić</div>
+        <a href="https://github.com/dj-neza"><div>Github</div></a>
+      </div>
+    </div>
+  </body>
+</html>
