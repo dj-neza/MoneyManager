@@ -41,7 +41,7 @@
                 <option value="wallet">{{ wallet.wal_name }}</option>
                 {% endfor %}
               </select>
-              <div id="total" class="inliner pad_10" >{{ user.balance }} €</div>
+              <div id="total" class="inliner pad_10" >{{ user.balance }} {{user.currency}}</div>
             </div>
             <div id="transaction" class="color_yel div_buttonL col-2 col-m-3 col-s-1 inliner mar_t10 mar_r10 mar_l10 pad_5" onclick="div_show('pop7')">New transaction</div>
             <div class="col-3 col-m-2"></div>
@@ -81,7 +81,7 @@
 		            <tr id="exp{{ expense.pk }}" class="color_vio h_25 mar_t5" >
 	                    <td class="color_yel h_25 bold alignment" >{{expense.exp_name}}</td>
 	                    <td class="h_25">{{expense.cat_exp}}</td>
-	                    <td class="h_25">{{expense.exp_amount}} €</td>
+	                    <td class="h_25">{{expense.exp_amount}} {{user.currency}}</td>
 	                    <td class="h_25">{{expense.exp_date}}</td>
 	                    <td class="h_25">edit</td>
 	                    <td class="h_25">remove</td>
@@ -116,7 +116,7 @@
 		            <tr id="inc{{ income.pk }}" class="color_vio h_25 mar_t5" >
 	                    <td class="color_yel h_25 bold alignment" >{{income.inc_name}}</td>
 	                    <td class="h_25">{{income.inc_exp}}</td>
-	                    <td class="h_25">{{income.inc_amount}} €</td>
+	                    <td class="h_25">{{income.inc_amount}} {{user.currency}}</td>
 	                    <td class="h_25">{{income.inc_date}}</td>
 	                    <td class="h_25">edit</td>
 	                    <td class="h_25">remove</td>
@@ -134,7 +134,7 @@
 	                    <div class="color_vio mar_5 pad_t5 goal_med" >
 	                      <div class="mar_t10">{{ goal.goal_name }}</div>
 	                      <div class="color_yel mar_t10 goal_amount" >{{goal.amount_now}} out of {{ goal.goal_amount }}</div>
-	                      <div class="color_bro mar_t10 pointer goal_but" onclick ="div_show('pop9')">ADD TO GOAL</div>
+	                      <div class="color_bro mar_t10 pointer goal_but" onclick ="div_show2('pop9', '{{ goal.pk}}')">ADD TO GOAL</div>
 	                    </div>
 	                  </div>
 		            {% endfor %}
@@ -195,25 +195,31 @@
           <div class="pop" id="pop2">
             <div class="col-3 col-m-2"></div>
             <div class="popups color_lvio col-5 col-m-7" id="popups2">
-              <form action="#" id="form2" method="post" name="form">
                 <img src='{% static "img/close.png" %}' alt="Close" class="close" onclick ="div_hide('pop2')">
                 <h2>My wallets</h2>
                 <hr>
                 <div class="over_a alignmentL">
                 	{% for wallet in wallet_list.all %}
-		             <div class="mar_t10"><input id="wallet1" name="wallet1" type="text" value="Working on it" >{{ wallet.wal_name }}
-		             	<img class="icon" alt="Edit" src='{% static "img/edit.png" %}' onclick ="">
-	                    <img src='{% static "img/close.png" %}' alt="Remove" class="close" onclick="">
+                	<form action="{% url 'money:app' user.pk %}" id="form2_1" method="post" name="form">
+              		{% csrf_token %}
+		             <div class="mar_t10">
+		                <input id="wallet1" name="wallet1" type="text" value="{{ wallet.wal_name }}" >
+		                <input class="neviden" name="walletPK" value="{{wallet.pk}}">
+		             	<input type="submit" name="walletEDIT" value="EDIT">
+	                    <input type="submit" name="walletREMOVE" value="REMOVE">
 	                </div>
+	                </form>
 		            {% endfor %}
-	                <div class="mar_t10"><input name="wallet3" type="text" placeholder="Add a wallet" >
-						<img alt="Add" class="icon" src='{% static "img/check.png" %}' onclick ="">
+		            <form action="{% url 'money:app' user.pk %}" id="form2_2" method="post" name="form">
+              		{% csrf_token %}
+	                <div class="mar_t10"><input name="wallettoadd" type="text" placeholder="Add a wallet" >
+						<input type="submit" name="walletADD" value="ADD" class="inliner">
 	                </div>
+	                </form>
 	                <div class="mar_t10 alignment">
 	                  	<img class="icon" alt="Add more" src='{% static "img/plus.png" %}' onclick ="">
 	                </div>              
                 </div>
-              </form>
             </div>
             <div class="col-4 col-m-3"></div>
           </div>
@@ -221,7 +227,6 @@
           <div class="pop" id="pop3">
             <div class="col-3 col-m-2"></div>
             <div class="popups color_lvio col-5 col-m-7" id="popups3">
-              <form action="#" id="form3" method="post" name="form">
                 <img src='{% static "img/close.png" %}' alt="Close" class="close" onclick="div_hide('pop3')">
                 <h2>My categories</h2>
                 <hr>
@@ -231,33 +236,53 @@
                     <option value="2">Income categories</option>
                   </select>
                 </div>
-                <div id="manex" class="over_a alignmentL" >
+                <div id="manex" class="over_a alignmentL " >
                 	{% for category in category_list_exp.all %}
-		              <div class="mar_t10"><input id="cat1" name="cat1" type="text" value="Working on it" >
-		              	<img class="icon" alt="Edit" src='{% static "img/edit.png" %}' onclick ="">
-	                    <img src='{% static "img/close.png" %}' alt="Remove" class="close" onclick="">
+	                  <form action="{% url 'money:app' user.pk %}" id="form3_1" method="post" name="form">
+	              		{% csrf_token %}
+			              <div class="mar_t10">
+			              	<input id="cat1" name="cat1" type="text" value="{{category.cat_name}}" >
+			              	<input class="neviden" name="categoryPK" value="{{category.pk}}">
+			             	<input type="submit" name="catEDIT" value="EDIT">
+		                    <input type="submit" name="catREMOVE" value="REMOVE">
+		                  </div>
+		                </form>
+			            {% endfor %}
+	                  <form action="{% url 'money:app' user.pk %}" id="form3_2" method="post" name="form">
+	              		{% csrf_token %}
+	                  <div class="mar_t10">
+		                  <input name="cattoadd" type="text" placeholder="Add a category" >
+		                  <input type="submit" name="catADD" value="ADD">
 	                  </div>
-		            {% endfor %}
-                  <div class="mar_t10"><input name="wallet3" type="text" placeholder="Add a category" >
-                  <img alt="Add" class="icon" src='{% static "img/check.png" %}' onclick =""></div>
-                  <div class="mar_t10 alignment">
-                  	<img alt="Add more" class="icon" src='{% static "img/plus.png" %}' onclick ="">
-                  </div>              
+	                  </form>
+	                  <div class="mar_t10 alignment">
+	                  	<img alt="Add more" class="icon" src='{% static "img/plus.png" %}' onclick ="">
+                  </div>             
                 </div>
-                <div class="neviden over_a alignmentL" id="manin" >
+                <div class="neviden over_a alignmentL " id="manin" >
                   {% for category in category_list_inc.all %}
-		              <div class="mar_t10"><input id="cat1" name="cat1" type="text" value="Working on it" >
-		              	<img class="icon" alt="Edit" src='{% static "img/edit.png" %}' onclick ="">
-	                    <img src='{% static "img/close.png" %}' alt="Remove" class="close" onclick="">
+                  <form action="{% url 'money:app' user.pk %}" id="form3_1" method="post" name="form">
+              		{% csrf_token %}
+		              <div class="mar_t10">
+		              	<input id="cat1" name="cat1" type="text" value="{{category.cat_name}}" >
+		              	<input class="neviden" name="categoryPK" value="{{category.pk}}">
+		             	<input type="submit" name="catEDIT" value="EDIT">
+	                    <input type="submit" name="catREMOVE" value="REMOVE">
 	                  </div>
+	                </form>
 		            {% endfor %}
-                  <div class="mar_t10"><input name="wallet3" type="text" placeholder="Add a category" >
-                  <img alt="Add" class="icon" src='{% static "img/check.png" %}' onclick =""></div>
+                  <form action="{% url 'money:app' user.pk %}" id="form3_2" method="post" name="form">
+              		{% csrf_token %}
+                  <div class="mar_t10">
+	                  <input name="cattoadd" type="text" placeholder="Add a category" >
+	                  <input name="catinc" type="text" class="neviden">
+	                  <input type="submit" name="catADD" value="ADD">
+                  </div>
+                  </form>
                   <div class="mar_t10 alignment">
                   	<img alt="Add more" class="icon" src='{% static "img/plus.png" %}' onclick ="">
                   </div>                 
                 </div>
-              </form>
             </div>
             <div class="col-4 col-m-3"></div>
           </div>
@@ -285,25 +310,32 @@
           <div class="pop" id="pop5">
             <div class="col-3 col-m-2"></div>
             <div class="popups color_lvio col-5 col-m-7" id="popups5">
-              <form action="#" id="form5" method="post" name="form">
+              <form action="{% url 'money:app' user.pk %}" id="form5" method="post" name="form">
+              	{% csrf_token %}
                 <img src='{% static "img/close.png" %}' alt="Close" class="close" onclick="div_hide('pop5')">
                 <h2>Settings</h2>
                 <hr>
                 <div class="over_a alignmentL">
-                  <div class="mar_t10">Currency <select class="f_right" >
-                    <option value="dollar">$</option>
-                    <option value="euro">€</option>
+                  <div class="mar_t10">Currency 
+                  <select name="current" class="f_right" >
+                    <option value="{{user.currency}}">{{user.currency}}</option>
+                    {% if user.currency == "$" %}
+                    <option value="€">€</option>
+                    {% endif %}
+                    {% if user.currency == "€" %}
+                    <option value="$">$</option>
+                    {% endif %}
                   </select></div>
-                  <div class="mar_t10">Decimal places <select class="f_right">
+                  <div class="mar_t10 neviden">Decimal places <select class="f_right">
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                   </select></div>
-                  <div class="mar_t10">Decimal mark <select class="f_right">
+                  <div class="mar_t10 neviden">Decimal mark <select class="f_right">
                     <option value="dot">.</option>
                     <option value="comma">,</option>
                   </select></div>
-                  <div class="color_bro mar_t10 alignment">SAVE</div>              
+                  <div class="color_bro mar_t10 alignment"><input type="submit" name="settings" value="SAVE"></div>              
                 </div>
               </form>
             </div>
@@ -313,24 +345,25 @@
           <div class="pop" id="pop6">
             <div class="col-3 col-m-2"></div>
             <div class="popups color_lvio col-5 col-m-7" id="popups6">
-              <form action="#" id="form6" method="post" name="form">
+              <form action="{% url 'money:app' user.pk %}" id="form5" method="post" name="form">
+              	{% csrf_token %}
                 <img src='{% static "img/close.png" %}' alt="Close" class="close" onclick="div_hide('pop6')">
                 <h2>My profile</h2>
                 <hr>
                 <div class="over_a alignmentL">
                   <div class="mar_t10">Change username</div>
-                  <div class="mar_t10"><input id="username" type="text" value="User1" >
-                  	<img alt="Edit" class="icon" src='{% static "img/edit.png" %}' onclick ="">
+                  <div class="mar_t10"><input name="username" type="text" value="{{user.user_name}}" >
+                  	<input type="submit" name="usernameEDIT" value="EDIT">
                   </div>
                   <div class="mar_t10">Change e-mail</div>
-                  <div class="mar_t10"><input id="e-mail" type="email" value="email@example.com" >
-                  	<img alt="Edit" class="icon" src='{% static "img/edit.png" %}' onclick ="">
+                  <div class="mar_t10"><input name="e-mail" type="email" value="{{user.e_mail}}" >
+                  	<input type="submit" name="emailEDIT" value="EDIT">
                   </div>
-                  <div class="mar_t10"><input id="pass1" type="password" placeholder="New password" ></div>
-                  <div class="mar_t10"><input id="pass2" type="password" placeholder="Confirm new password" >
-                  	<img alt="Change" class="icon" src='{% static "img/check.png" %}' onclick ="">
+                  <div class="mar_t10"><input name="pass1" type="password" placeholder="New password" ></div>
+                  <div class="mar_t10"><input name="pass2" type="password" placeholder="Confirm new password" >
+                  	<input type="submit" name="passEDIT" value="CHANGE PASSWORD">
                   </div>
-                  <div class="mar_t10">Avatar 
+                  <div class="mar_t10 neviden">Avatar 
                   	<img class="avatar" id="avatar" alt="Picture" src='{% static "img/human.png" %}'>
                   	<img alt="Change" class="icon" src='{% static "img/edit.png" %}' onclick ="">
                   </div>
@@ -461,7 +494,7 @@
                 <h2>Add to goal</h2>
                 <hr>
                 <div id="dropdown12" class="inliner" >
-                  <select >
+                  <select name="t_to">
                     <option value="total">Choose wallet</option>
                     {% for wallet in wallet_list.all %}
 		              <option value="{{wallet.pk}}">{{ wallet.wal_name }}</option>
@@ -469,8 +502,9 @@
                   </select>
                 </div>
                 <div class="mar_t10"><input name="amount" placeholder="Enter amount in $" type="number" step="0.01"></div>
-                <div class="mar_t10">When? <input name="incDate" type="date"></div>
-                <div class="color_bro mar_t10"><input type="submit" name="goalNew" value="ADD"></div>
+                <div class="mar_t10">When? <input name="goalDate" type="date"></div>
+                <div class="color_bro mar_t10"><input type="submit" name="goalAdd" value="ADD"></div>
+                <div><input id="goalPK" name="goalPK" value="" class="neviden"></div>
               </form>
             </div>
             <div class="col-4 col-m-3"></div>

@@ -1,3 +1,4 @@
+# coding=utf-8
 from __future__ import unicode_literals
 
 from django.db import models
@@ -9,7 +10,7 @@ class Users(models.Model):
 	e_mail = models.EmailField(max_length=254)
 	pass_word = models.CharField(max_length=100)
 	balance = models.IntegerField(default=0)
-	currency = models.IntegerField(default=0) # 0-euro, 1-dollar
+	currency = models.CharField(default="€", max_length=20) # € or $
 	decimal = models.IntegerField(default=0) # 0-. 1-
 	def __str__(self):
 		return self.user_name

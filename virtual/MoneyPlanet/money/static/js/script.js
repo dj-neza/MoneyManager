@@ -261,35 +261,10 @@ function updateDatabaseCurrent(username) {
 function div_show(id) {
 	document.getElementById(id).style.display = "block";
 }
+function div_show2(id, goal_id) {
+	document.getElementById(id).style.display = "block";
+	document.getElementById("goalPK").value = goal_id;
+}
 function div_hide(id){
 	document.getElementById(id).style.display = "none";
 }
-
-/* FUNCIONALITY STUFF
-function newTransaction() {
-
-}
-function newExpense() {
-
-}
-function newIncome() {
-
-}
-
-function newGoal() {
-
-}
-function addToGoal() {
-
-}
-
-function menu() {
-
-}
-function user() {
-
-}
-function updateBalance() {
-	
-}
-*/
