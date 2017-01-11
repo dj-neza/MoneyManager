@@ -4,7 +4,8 @@ from django.conf.urls.static import static
 
 from . import views
 
+app_name = 'money'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^(?P<user_id>[0-9]+)/$', views.app, name='app'),
+    url(r'^(?P<user_id>[0-9]+)/$', views.app, name='app')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

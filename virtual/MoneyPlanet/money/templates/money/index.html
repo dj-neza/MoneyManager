@@ -34,7 +34,7 @@
 			  	</div>
 			  	<div id="sign-up" class="color_vio col-4 col-m-5 mar_5" >
 			  		<h4>SIGN-UP</h4>
-			  		<div><form id="signup" style="">
+			  		<div><form id="signup" action="{% url 'money:index' %}" style="">
 						<div class="row">
 							<div class="col-6 col-m-12"><label for="email2">E-mail: </label></div>
 							<div class="col-6 col-m-12"><input class="max_110" type="text" id="email2" required="required"></div>
@@ -51,6 +51,7 @@
 							<div class="col-6 col-m-12"><label for="password22">Password confirmation: </label></div>
 							<div class="col-6 col-m-12"><input class="max_110" type="password" id="password22" required="required"></div>
 						</div>
+						<input type="submit" value="lala">
 					</form></div>
 				    <div id="signup_button" class="color_yel div_buttonL mar_r20l20 h_25 alignment">SIGN UP</div>
 			  	</div>

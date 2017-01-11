@@ -4,6 +4,7 @@ var goals = [];
 var currentUsername = "";
 
 document.addEventListener("DOMContentLoaded", function(event) { 
+    console.log("lala");
 	console.log("work");
 	if (localStorage.getItem("users") != null) {
 	    users = JSON.parse(localStorage.getItem("users"));
@@ -21,9 +22,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 	var pageName = (function () {
         var a = window.location.href,
             b = a.lastIndexOf("/");
-        return a.substr(b + 1);
+        return b;
     }());
-    if (pageName[0] == "a") {
+    console.log(pageName);
+    if (pageName == 29) {
     	document.getElementById("managing").onchange = function() {
 			var val = document.getElementById("managing").options[document.getElementById("managing").selectedIndex].value;
 			if (val == 1) {
@@ -133,7 +135,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			openTab("statscontent", "expensecontent", "incomecontent", "goalscontent");
 		}
     }
-    else if (pageName[0] == "i") {
+    else {
     	document.getElementById("login_button").onclick = function() {
 			logIn("login");
 		}
