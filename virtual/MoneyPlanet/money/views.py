@@ -1,9 +1,15 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404, render
+from django.contrib.auth import authenticate, login, logout
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.contrib.auth.models import User
 from .models import Users, Categories, Wallets, Goals, Expenses, Incomes
 
 def index(request):
+	if 'logout' in request.POST:
+		logout(request)
 	user_list = Users.objects.all()
 	template = loader.get_template('money/index.html')
 	context = {
@@ -11,8 +17,44 @@ def index(request):
 	}
 	return HttpResponse(template.render(context, request))
 
+"""u = User.objects.get(username='john')
+u.set_password('new password')
+u.save()"""
+
 def app(request, user_id):
-	if 'transactionSS' in request.POST: 
+	if 'LOGIN' in request.POST:
+		username = request.POST['username']
+		password = request.POST['password1']
+	  	user = authenticate(username=username, password=password)
+	  	if user is not None:
+	  		u = Users.objects.get(user_name=username)
+	    	if u is not None:
+	    		user_id = u.pk
+	    	login(request, user)
+	elif 'SIGNUP' in request.POST:
+		username = request.POST['username']
+		email = request.POST['email2']
+		pass1 = request.POST['password2']
+		pass2 = request.POST['password22']
+		if pass1 == pass2:
+			user = User.objects.create_user(username, email, pass1)
+			u = Users(user_name=username)
+			user.save()
+			u.save()
+			u1 = Users.objects.get(user_name=username)
+			if u1 is not None:
+				user_id = u1.pk
+			w1 = Wallets(user_wal = Users.objects.get(pk=user_id), wal_name="Cash")
+			w2 = Wallets(user_wal = Users.objects.get(pk=user_id), wal_name="Credit card")
+			w1.save()
+			w2.save()
+			c1 = Categories(user_cat = Users.objects.get(pk=user_id), cat_name="Transaction", cat_for=1)
+			c2 = Categories(user_cat = Users.objects.get(pk=user_id), cat_name="Transaction")
+			c3 = Categories(user_cat = Users.objects.get(pk=user_id), cat_name="Adding goal")
+			c1.save()
+			c2.save()
+			c3.save()
+	elif 'transactionSS' in request.POST: 
 		name = request.POST['expName']
 		date = request.POST['expDate']
 		amount = request.POST['amount']
@@ -25,7 +67,7 @@ def app(request, user_id):
 			t_to = request.POST.get('t_to')
 			t1 = Incomes(user_inc = Users.objects.get(pk=user_id), inc_name=name, cat_inc= Categories.objects.get(pk=1), wal_inc=Wallets.objects.get(pk=t_from), inc_date=date, inc_amount=amount, inc_rep=rep)
 			t1.save()
-			t2 = Expenses(user_exp = Users.objects.get(pk=user_id), exp_name=name, cat_exp= Categories.objects.get(pk=1), wal_exp=Wallets.objects.get(pk=t_to), exp_date=date, exp_amount=amount, exp_rep=rep)
+			t2 = Expenses(user_exp = Users.objects.get(pk=user_id), exp_name=name, cat_exp= Categories.objects.get(pk=2), wal_exp=Wallets.objects.get(pk=t_to), exp_date=date, exp_amount=amount, exp_rep=rep)
 			t2.save()
 		elif(transact_type == '2'):
 			excat = request.POST.get('excat1')
@@ -96,7 +138,7 @@ def app(request, user_id):
 		nameExp = "Savings for " + g.goal_name
 		g.amount_now += int(amount)
 		g.save()
-		e = Expenses(user_exp = Users.objects.get(pk=user_id), exp_name=nameExp, cat_exp= Categories.objects.get(pk=1), wal_exp=Wallets.objects.get(pk=t_from), exp_date=date, exp_amount=amount)
+		e = Expenses(user_exp = Users.objects.get(pk=user_id), exp_name=nameExp, cat_exp= Categories.objects.get(pk=3), wal_exp=Wallets.objects.get(pk=t_from), exp_date=date, exp_amount=amount)
 		e.save()
 		u = Users.objects.get(pk=user_id)
 		u.balance -= int(amount)
@@ -135,26 +177,37 @@ def app(request, user_id):
 		u.save()
 	elif 'usernameEDIT' in request.POST:
 		name = request.POST['username']
-		u = Users.objects.get(pk=user_id)
-		u.user_name = name
+		u1 = Users.objects.get(pk=user_id)
+		u = User.objects.get(username=u1.user_name)
+		u1.user_name = name
+		u.username = name
 		u.save()
+		u1.save()
 	elif 'emailEDIT' in request.POST:
 		email = request.POST['e-mail']
-		u = Users.objects.get(pk=user_id)
-		u.e_mail = email
+		u1 = Users.objects.get(pk=user_id)
+		u = User.objects.get(username=u1.user_name)
+		u.email = email
 		u.save()
 	elif 'passEDIT' in request.POST:
 		pass1 = request.POST['pass1']
 		pass2 = request.POST['pass2']
 		if pass1 == pass2:
-			u = Users.objects.get(pk=user_id)
-			u.pass_word = pass1
+			u1 = Users.objects.get(pk=user_id)
+			u = User.objects.get(username=u1.user_name)
+			u.set_password(pass1)
 			u.save()
 	user = get_object_or_404(Users, pk=user_id)
+	user2 = User.objects.get(username=user.user_name)
 	wallet_list = Wallets.objects.filter(user_wal=user_id)
 	category_list_exp = Categories.objects.filter(user_cat=user_id, cat_for=0)
 	category_list_inc = Categories.objects.filter(user_cat=user_id, cat_for=1)
 	goal_list = Goals.objects.filter(user_goal=user_id)
 	expense_list = Expenses.objects.filter(user_exp=user_id)
 	income_list = Incomes.objects.filter(user_inc=user_id)
-	return render(request, 'money/app.html', {'user': user, 'wallet_list': wallet_list, 'category_list_exp': category_list_exp, 'category_list_inc': category_list_inc, 'goal_list': goal_list, 'expense_list': expense_list, 'income_list': income_list})
+	if goal_list is not None and expense_list is not None and income_list is not None:
+		return render(request, 'money/app.html', {'user': user, 'user2': user2,  'wallet_list': wallet_list, 'category_list_exp': category_list_exp, 'category_list_inc': category_list_inc, 'goal_list': goal_list, 'expense_list': expense_list, 'income_list': income_list})
+	else:
+		return render(request, 'money/app.html', {'user': user, 'user2': user2, 'wallet_list': wallet_list, 'category_list_exp': category_list_exp, 'category_list_inc': category_list_inc})
+
+

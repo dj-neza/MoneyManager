@@ -7,10 +7,8 @@ from django.utils.encoding import python_2_unicode_compatible
 @python_2_unicode_compatible
 class Users(models.Model):
 	user_name = models.CharField(max_length=50)
-	e_mail = models.EmailField(max_length=254)
-	pass_word = models.CharField(max_length=100)
 	balance = models.IntegerField(default=0)
-	currency = models.CharField(default="€", max_length=20) # € or $
+	currency = models.CharField(default="€", max_length=20)
 	decimal = models.IntegerField(default=0) # 0-. 1-
 	def __str__(self):
 		return self.user_name

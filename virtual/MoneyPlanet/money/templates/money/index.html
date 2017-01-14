@@ -20,40 +20,41 @@
 		  		<div class="col-2 col-m-1"></div>
 		  		<div id="log-in" class="color_vio col-4 col-m-5 mar_5">
 		  			<h4>LOG-IN</h4>
-		  			<div><form id="login" style="">
+		  			<div> <form action="{% url 'money:app' 2 %}" id="form7" method="post" name="form">
+              			{% csrf_token %}
 						<div class="row">
-							<div class="col-6 col-m-12"><label for="email1">E-mail: </label></div>
-							<div class="col-6 col-m-12"><input class="max_110" type="text" id="email1" required="required"></div>
+							<div class="col-6 col-m-12"><label for="email1">Username: </label></div>
+							<div class="col-6 col-m-12"><input class="max_110" type="text" id="email1" name="username" required="required"></div>
 						</div>
 						<div class="row">
 							<div class="col-6 col-m-12"><label for="password1">Password: </label></div>
-							<div class="col-6 col-m-12"><input class="max_110" type="password" id="password1" required="required"></div>
+							<div class="col-6 col-m-12"><input class="max_110" type="password" id="password1" name="password1" required="required"></div>
 						</div>
+					<div id="login_button" class="color_yel div_buttonL mar_r20l20 h_25 alignment"><input type="submit" name="LOGIN" value="LOG IN"></div>
 					</form></div>
-					<div id="login_button" class="color_yel div_buttonL mar_r20l20 h_25 alignment">LOG IN</div>
 			  	</div>
 			  	<div id="sign-up" class="color_vio col-4 col-m-5 mar_5" >
 			  		<h4>SIGN-UP</h4>
-			  		<div><form id="signup" action="{% url 'money:index' %}" style="">
+			  		<div> <form action="{% url 'money:app' 2 %}" id="form7" method="post" name="form">
+              			{% csrf_token %}
 						<div class="row">
 							<div class="col-6 col-m-12"><label for="email2">E-mail: </label></div>
-							<div class="col-6 col-m-12"><input class="max_110" type="text" id="email2" required="required"></div>
+							<div class="col-6 col-m-12"><input class="max_110" type="text" id="email2" name="email2" required="required"></div>
 						</div>
 						<div class="row">
 							<div class="col-6 col-m-12"><label for="username">Username: </label></div>
-							<div class="col-6 col-m-12"><input class="max_110" type="text" id="username" required="required"></div>
+							<div class="col-6 col-m-12"><input class="max_110" type="text" id="username" name="username" required="required"></div>
 						</div>
 						<div class="row">
 							<div class="col-6 col-m-12"><label for="password2">Password: </label></div>
-							<div class="col-6 col-m-12"><input class="max_110" type="password" id="password2" required="required"></div>
+							<div class="col-6 col-m-12"><input class="max_110" type="password" id="password2" name="password2" required="required"></div>
 						</div>
 						<div class="row">
 							<div class="col-6 col-m-12"><label for="password22">Password confirmation: </label></div>
-							<div class="col-6 col-m-12"><input class="max_110" type="password" id="password22" required="required"></div>
+							<div class="col-6 col-m-12"><input class="max_110" type="password" id="password22" name="password22" required="required"></div>
 						</div>
-						<input type="submit" value="lala">
+					<div id="login_button" class="color_yel div_buttonL mar_r20l20 h_25 alignment"><input type="submit" name="SIGNUP" value="LOG IN"></div>
 					</form></div>
-				    <div id="signup_button" class="color_yel div_buttonL mar_r20l20 h_25 alignment">SIGN UP</div>
 			  	</div>
 			  	<div class="col-2 col-m-1"></div>
 		  	</div>

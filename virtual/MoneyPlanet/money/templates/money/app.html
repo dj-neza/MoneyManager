@@ -28,7 +28,10 @@
           </a>
           <div id="menu2" class="menu_toggle2">
             <div id="profile" class="color_lvio div_button h_25 w-95 alignment" onclick="div_show('pop6')">Profile settings</div><br>
-            <div id="logout" class="color_lvio div_button h_25 w-95 alignment">Log out</div>
+            <form action="{% url 'money:index' %}" id="form1" method="post" name="form">
+            {% csrf_token %}
+            <div id="logout" class="color_lvio div_button h_25 w-95 alignment"><input type="submit" name="logout" value="Log out"></div>
+            </form>
           </div>
         </div>
         <div class="mar_t30 bold alignment">BALANCE
@@ -356,9 +359,10 @@
                   	<input type="submit" name="usernameEDIT" value="EDIT">
                   </div>
                   <div class="mar_t10">Change e-mail</div>
-                  <div class="mar_t10"><input name="e-mail" type="email" value="{{user.e_mail}}" >
+                  <div class="mar_t10"><input name="e-mail" type="email" value="{{user2.email}}" >
                   	<input type="submit" name="emailEDIT" value="EDIT">
                   </div>
+                  <div class="mar_t10">Change password</div>
                   <div class="mar_t10"><input name="pass1" type="password" placeholder="New password" ></div>
                   <div class="mar_t10"><input name="pass2" type="password" placeholder="Confirm new password" >
                   	<input type="submit" name="passEDIT" value="CHANGE PASSWORD">
@@ -366,8 +370,7 @@
                   <div class="mar_t10 neviden">Avatar 
                   	<img class="avatar" id="avatar" alt="Picture" src='{% static "img/human.png" %}'>
                   	<img alt="Change" class="icon" src='{% static "img/edit.png" %}' onclick ="">
-                  </div>
-                  <div class="color_bro mar_t10 alignment">SAVE</div>              
+                  </div>            
                 </div>
               </form>
             </div>
