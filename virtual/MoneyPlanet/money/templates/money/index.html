@@ -4,9 +4,9 @@
     <title>MoneyPlan(e)t</title>
     <meta charset="UTF-8">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_min.css' %}">
     {% load static %}
-    <script type="text/javascript" src="{%static 'js/script.js' %}"></script>
+    <script type="text/javascript" src="{%static 'js/script_min.js' %}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
@@ -53,11 +53,16 @@
 							<div class="col-6 col-m-12"><label for="password22">Password confirmation: </label></div>
 							<div class="col-6 col-m-12"><input class="max_110" type="password" id="password22" name="password22" required="required"></div>
 						</div>
-					<div id="login_button" class="color_yel div_buttonL mar_r20l20 h_25 alignment"><input type="submit" name="SIGNUP" value="LOG IN"></div>
+					<div id="login_button" class="color_yel div_buttonL mar_r20l20 h_25 alignment"><input type="submit" name="SIGNUP" value="SIGN UP"></div>
 					</form></div>
 			  	</div>
 			  	<div class="col-2 col-m-1"></div>
 		  	</div>
+		  	{% if messages %}
+	        {% for message in messages %}
+	            <p style="color: #990033; text-align: center; font-size: 19px; font-weight: bold;">{{ message }}</p>
+	        {% endfor %}
+	        {% endif %}
 		</div>
 	  	<div id="footer" class="alignment">
 	        <div>Author: Neža Đukić</div>

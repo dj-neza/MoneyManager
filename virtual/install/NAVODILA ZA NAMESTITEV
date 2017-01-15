@@ -1,0 +1,9 @@
+NAVODILA ZA NAMESTITEV: 
+
+Zahtevana programska orodja
+-- Python 3
+-- Django
+SQL baza
+-- SQL ukazi v database.sql skripti
+Objava
+-- ukaz 'python manage.py runserver' zažene aplikacijo, ki je nato dostopna na naslovu http://127.0.0.1:8000/money/ oziroma http://127.0.0.1:8000/admin/ (administratorski del aplikacije)

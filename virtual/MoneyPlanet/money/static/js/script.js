@@ -1,23 +1,4 @@
-var users = [];
-var money = [];
-var goals = [];
-var currentUsername = "";
-
 document.addEventListener("DOMContentLoaded", function(event) { 
-    console.log("lala");
-	console.log("work");
-	if (localStorage.getItem("users") != null) {
-	    users = JSON.parse(localStorage.getItem("users"));
-	}
-	if (localStorage.getItem("money") != null) {
-	    money = JSON.parse(localStorage.getItem("money"));
-	}
-	if (localStorage.getItem("goals") != null) {
-	    goals = JSON.parse(localStorage.getItem("goals"));
-	}
-	if (localStorage.getItem("currentUsername") != null) {
-	    currentUsername = JSON.parse(localStorage.getItem("currentUsername"));
-	}
 
 	var pageName = (function () {
         var a = window.location.href,
@@ -135,14 +116,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 			openTab("statscontent", "expensecontent", "incomecontent", "goalscontent");
 		}
     }
-    else {
-    	document.getElementById("login_button").onclick = function() {
-			logIn("login");
-		}
-		document.getElementById("signup_button").onclick = function() {
-			signUp("signup");
-		}
-    }
 });
 
 function gumbi(id1, id2, id3, id4) {
@@ -192,70 +165,9 @@ function fadeIn(el, display){
     }
   })();
 }
-
-function logIn(formid) { //TODO - ne dela vec ker ni vezano na formo
-	var form = document.getElementById(formid);
-	if (localStorage.getItem("users") != null) {
-	    users = JSON.parse(localStorage.getItem("users"));
-	}
-	for (var i = 0; i < users.length; i++) {
-		if (users[i].email == form.email1.value && users[i].password == form.password1.value) {
-			currentUsername = users[i].username;
-	    	updateDatabaseCurrent(currentUsername);
-			window.location.href = "app.html";
-		}
-	}
-	if (validateEmail(form.email1.value) == true) {
-		window.location.href = "app.html";
-	}
-	else {
-		alert("Enter a valid email");
-	}
-	//alert("Wrong e-mail or password.");
-}
-function signUp(formid) { //TODO - ne dela vec ker ni vezano na formo
-	var form = document.getElementById(formid);
-	if (form.password2.value == form.password22.value) {
-		if (validateEmail(form.email2.value) == true) {
-			var newUser = {
-		      email: form.email2.value,
-		      username: form.username.value,
-		      password: form.password2.value
-		    };
-		    users.push(newUser);
-		    updateDatabaseUsers(users);
-		    currentUsername = form.username.value;
-		    updateDatabaseCurrent(currentUsername);
-		    window.location.href = "app.html";
-		}
-		else {
-			alert("Enter a valid email.");
-		}
-	}
-	else {
-		alert("Passwords don't match.");
-	}
-} 
-function logOut() {
-	var currentUser = "";
-	updateDatabaseCurrent(currentUser);
-}
 function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
-}
-
-function updateDatabaseUsers(users) {
-    localStorage.setItem("users", JSON.stringify(users));
-}
-function updateDatabaseMoney(money) {
-    localStorage.setItem("money", JSON.stringify(money));
-}
-function updateDatabaseGoals(goals) {
-    localStorage.setItem("goals", JSON.stringify(goals));
-}
-function updateDatabaseCurrent(username) {
-	localStorage.setItem("currentUsername", JSON.stringify(username));
 }
 
 function div_show(id) {

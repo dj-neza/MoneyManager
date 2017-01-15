@@ -4,7 +4,7 @@
     <title>MoneyPlan(e)t</title>
     <meta charset="UTF-8">
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">  
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_min.css' %}">  
     <script type="text/javascript" src="{%static 'js/script.js' %}"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
@@ -34,6 +34,11 @@
             </form>
           </div>
         </div>
+        {% if messages %}
+        {% for message in messages %}
+            <p style="color: #990033; text-align: center; font-size: 19px; font-weight: bold;">{{ message }}</p>
+        {% endfor %}
+        {% endif %}
         <div class="mar_t30 bold alignment">BALANCE
           <div id="balance" class="color_bro row" >
             <div class="col-4 col-m-3"></div>
@@ -118,7 +123,7 @@
                   {% for income in income_list.all %}
 		            <tr id="inc{{ income.pk }}" class="color_vio h_25 mar_t5" >
 	                    <td class="color_yel h_25 bold alignment" >{{income.inc_name}}</td>
-	                    <td class="h_25">{{income.inc_exp}}</td>
+	                    <td class="h_25">{{income.cat_inc}}</td>
 	                    <td class="h_25">{{income.inc_amount}} {{user.currency}}</td>
 	                    <td class="h_25">{{income.inc_date}}</td>
 	                    <td class="h_25">edit</td>
@@ -162,7 +167,6 @@
                 <hr>
                 <div id="dropdown111">
                   <select name="exp_wal">
-                    <option value="total">Choose wallet</option>
                       {% for wallet in wallet_list.all %}
 		              <option value="{{ wallet.pk }}">{{ wallet.wal_name }}</option>
 		              {% endfor %}
@@ -170,15 +174,14 @@
                 </div>
                 <div id="dropdown222" class="mar_t10">
                   <select name="exp_cat">
-                    <option value="total">Choose category</option>
                     {% for category in category_list_exp.all %}
 		              <option value="{{ category.pk }}">{{ category.cat_name }}</option>
 		            {% endfor %}
                   </select>
                 </div>
-                <div class="mar_t10"><input name="amount" placeholder="Enter amount in $" type="number" step="0.01"></div>
-                <div class="mar_t10"><input name="expName" placeholder="Name the expense" type="text" ></div>
-                <div class="mar_t10">When? <input name="expDate" type="date"></div>
+                <div class="mar_t10"><input name="amount" placeholder="Enter amount in $" type="number" step="0.01" required="required"></div>
+                <div class="mar_t10"><input name="expName" placeholder="Name the expense" type="text" required="required"></div>
+                <div class="mar_t10">When? <input name="expDate" type="date" required="required"></div>
                 <div class="mar_t10"><input type="checkbox" name="repeat" value="repeat" >Repeat the expense</div>
                 <div class="mar_t10">
                   <select name="repeatit">
@@ -394,7 +397,6 @@
                 </div>
                 <div id="from" class="mar_t10 ">From 
                   <select name="t_from">
-                    <option value="total">Choose wallet</option>
                     {% for wallet in wallet_list.all %}
 		              <option value="{{wallet.pk}}">{{ wallet.wal_name }}</option>
 		            {% endfor %}
@@ -402,7 +404,6 @@
                 </div>
                 <div id="to" class="mar_t10 ">To
                   <select name="t_to">
-                    <option value="total">Choose wallet</option>
                     {% for wallet in wallet_list.all %}
 		              <option value="{{wallet.pk}}">{{ wallet.wal_name }}</option>
 		            {% endfor %}
@@ -410,7 +411,6 @@
                 </div>
                 <div id="excat" class="inliner neviden mar_t10 ">
                   <select name="excat1">
-                    <option value="total">Choose category</option>
                     {% for category in category_list_exp.all %}
 		              <option value="{{category.pk}}">{{ category.cat_name }}</option>
 		            {% endfor %}
@@ -418,15 +418,14 @@
                 </div>
                 <div id="incat" class="inliner neviden mar_t10 ">
                   <select name="incat1">
-                    <option value="total">Choose category</option>
                     {% for category in category_list_inc.all %}
 		              <option value="{{category.pk}}">{{ category.cat_name }}</option>
 		            {% endfor %}
                   </select>
                 </div>
-                <div class="mar_t10"><input name="amount" placeholder="Enter amount in $" type="number" step="0.01"></div>
-                <div class="mar_t10"><input name="expName" placeholder="Name the transaction" type="text" ></div>
-                <div class="mar_t10">When? <input name="expDate" type="date"></div>
+                <div class="mar_t10"><input name="amount" placeholder="Enter amount in $" type="number" step="0.01" required="required"></div>
+                <div class="mar_t10"><input name="expName" placeholder="Name the transaction" type="text" required="required"></div>
+                <div class="mar_t10">When? <input name="expDate" type="date" required="required"></div>
                 <div class="mar_t10"><input type="checkbox" name="repeat" id="repeat"value="repetition" >Repeat the transaction</div>
                 <div class="mar_t10">
                   <select name="repeat_transaction">
@@ -455,7 +454,6 @@
                 <hr>
                 <div id="dropdown11111" class="inliner" >
                   <select name="inc_wal">
-                    <option value="total">Choose wallet</option>
                     {% for wallet in wallet_list.all %}
 		              <option value="{{wallet.pk}}">{{ wallet.wal_name }}</option>
 		            {% endfor %}
@@ -463,16 +461,15 @@
                 </div>
                 <div id="dropdown2222" class="inliner" >
                   <select name="inc_cat">
-                    <option value="total">Choose category</option>
                     {% for category in category_list_inc.all %}
 		              <option value="{{category.pk}}">{{ category.cat_name }}</option>
 		            {% endfor %}
                   </select>
                 </div>
-                <div class="mar_t10"><input name="amount" placeholder="Enter amount in $" type="number" step="0.01"></div>
-                <div class="mar_t10"><input id="incName" name="incName" placeholder="Name the income" type="text" ></div>
+                <div class="mar_t10"><input name="amount" placeholder="Enter amount in $" type="number" step="0.01" required="required"></div>
+                <div class="mar_t10"><input id="incName" name="incName" placeholder="Name the income" type="text" required="required"></div>
                 <div class="mar_t10">When? <input name="incDate" type="date"></div>
-                <div class="mar_t10"><input type="checkbox" name="repeat" value="repetition" >Repeat the income</div>
+                <div class="mar_t10" required="required"><input type="checkbox" name="repeat" value="repetition" >Repeat the income</div>
                 <div class="mar_t10">
                   <select name="repeatit2">
                     <option value="1">every day</option>
@@ -498,14 +495,13 @@
                 <hr>
                 <div id="dropdown12" class="inliner" >
                   <select name="t_to">
-                    <option value="total">Choose wallet</option>
                     {% for wallet in wallet_list.all %}
 		              <option value="{{wallet.pk}}">{{ wallet.wal_name }}</option>
 		            {% endfor %}
                   </select>
                 </div>
-                <div class="mar_t10"><input name="amount" placeholder="Enter amount in $" type="number" step="0.01"></div>
-                <div class="mar_t10">When? <input name="goalDate" type="date"></div>
+                <div class="mar_t10"><input name="amount" placeholder="Enter amount in $" type="number" step="0.01" required="required"></div>
+                <div class="mar_t10">When? <input name="goalDate" type="date" required="required"></div>
                 <div class="color_bro mar_t10"><input type="submit" name="goalAdd" value="ADD"></div>
                 <div><input id="goalPK" name="goalPK" value="" class="neviden"></div>
               </form>
@@ -521,9 +517,9 @@
                 <img src='{% static "img/close.png" %}' alt="Close" class="close" onclick ="div_hide('pop10')">
                 <h2>New goal</h2>
                 <hr>
-                <div class="mar_t10"><input id="goalName" name="goalName" placeholder="Name your goal" type="text" ></div>
-                <div class="mar_t10"><input name="amount" placeholder="Enter goal amount in €" type="number" step="0.01"></div>
-                <div class="mar_t10">Deadline <input id="goalDate" name="goalDate" type="date"></div>
+                <div class="mar_t10"><input id="goalName" name="goalName" placeholder="Name your goal" type="text" required="required"></div>
+                <div class="mar_t10"><input name="amount" placeholder="Enter goal amount in €" type="number" step="0.01" required="required"></div>
+                <div class="mar_t10">Deadline <input id="goalDate" name="goalDate" type="date" required="required"></div>
                 <div class="color_bro mar_t10" ><input type="submit" name="goalNew" value="ADD"></div>
               </form>
             </div>
