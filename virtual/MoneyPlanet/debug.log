@@ -1,0 +1,209 @@
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+"GET /money/ HTTP/1.1" 200 3308
+"GET /static/css/style_min.css HTTP/1.1" 304 0
+"GET /static/js/script_min.js HTTP/1.1" 304 0
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/Users/neza/Documents/MoneyManager/virtual/lib/python2.7/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u"<RegexURLResolver <module 'money.urls' from '/Users/neza/Documents/MoneyManager/virtual/MoneyPlanet/money/urls.pyc'> (money:money) ^money/>"
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/Users/neza/Documents/MoneyManager/virtual/lib/python2.7/site-packages/django/template/base.py", line 907, in _resolve_lookup
+    (bit, current))  # missing attribute
+VariableDoesNotExist: Failed lookup for key [name] in u'<RegexURLResolver <RegexURLPattern list> (admin:admin) ^admin/>'
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 2048
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'Nezica2'; args=(u'Nezica2',)
+"POST /money/2/ HTTP/1.1" 302 0
+"GET /money/ HTTP/1.1" 200 3466
+(0.002) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'haha'; args=(u'haha',)
+(0.001) SELECT "money_users"."id", "money_users"."user_name", "money_users"."balance", "money_users"."currency", "money_users"."decimal" FROM "money_users" WHERE "money_users"."user_name" = 'haha'; args=(u'haha',)
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'i4j7bxhkszib594hv2iurfml4p2w3zan' AND "django_session"."expire_date" > '2017-01-15 19:07:27.209492'); args=('i4j7bxhkszib594hv2iurfml4p2w3zan', u'2017-01-15 19:07:27.209492')
+(0.000) BEGIN; args=None
+(0.001) UPDATE "auth_user" SET "last_login" = '2017-01-15 19:07:27.211814' WHERE "auth_user"."id" = 6; args=(u'2017-01-15 19:07:27.211814', 6)
+(0.000) SELECT "money_users"."id", "money_users"."user_name", "money_users"."balance", "money_users"."currency", "money_users"."decimal" FROM "money_users" WHERE "money_users"."id" = 8; args=(8,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'haha'; args=(u'haha',)
+(0.001) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.001) SELECT "money_expenses"."id", "money_expenses"."user_exp_id", "money_expenses"."exp_name", "money_expenses"."cat_exp_id", "money_expenses"."wal_exp_id", "money_expenses"."exp_date", "money_expenses"."exp_amount", "money_expenses"."exp_rep", "money_expenses"."exp_loan", "money_expenses"."exp_loan_to" FROM "money_expenses" WHERE "money_expenses"."user_exp_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 23; args=(23,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 24; args=(24,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.001) SELECT "money_incomes"."id", "money_incomes"."user_inc_id", "money_incomes"."inc_name", "money_incomes"."wal_inc_id", "money_incomes"."cat_inc_id", "money_incomes"."inc_date", "money_incomes"."inc_amount", "money_incomes"."inc_rep", "money_incomes"."inc_debt", "money_incomes"."inc_debt_to" FROM "money_incomes" WHERE "money_incomes"."user_inc_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 22; args=(22,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 22; args=(22,)
+(0.001) SELECT "money_goals"."id", "money_goals"."user_goal_id", "money_goals"."goal_name", "money_goals"."goal_amount", "money_goals"."goal_deadline", "money_goals"."amount_now" FROM "money_goals" WHERE "money_goals"."user_goal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) BEGIN; args=None
+(0.001) UPDATE "django_session" SET "session_data" = 'ZGEyNjMxYzdkNDczMDk3NWZkYTEzYmQ0ZGFmNmNhNDNiYTA0ZjE4MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjM3ZDk5YjYzZTIwOWQ2NWU5ZGFiYjMzZjkyMzJkYmFhZGRiNGE0ZTAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI2In0=', "expire_date" = '2017-01-29 19:07:27.269082' WHERE "django_session"."session_key" = 'i4j7bxhkszib594hv2iurfml4p2w3zan'; args=(u'ZGEyNjMxYzdkNDczMDk3NWZkYTEzYmQ0ZGFmNmNhNDNiYTA0ZjE4MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjM3ZDk5YjYzZTIwOWQ2NWU5ZGFiYjMzZjkyMzJkYmFhZGRiNGE0ZTAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI2In0=', u'2017-01-29 19:07:27.269082', 'i4j7bxhkszib594hv2iurfml4p2w3zan')
+"POST /money/2/ HTTP/1.1" 200 30929
+"GET /static/js/script.js HTTP/1.1" 200 7492
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'i4j7bxhkszib594hv2iurfml4p2w3zan' AND "django_session"."expire_date" > '2017-01-15 19:09:37.989874'); args=('i4j7bxhkszib594hv2iurfml4p2w3zan', u'2017-01-15 19:09:37.989874')
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 6; args=(6,)
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE "django_session"."session_key" = 'i4j7bxhkszib594hv2iurfml4p2w3zan'; args=('i4j7bxhkszib594hv2iurfml4p2w3zan',)
+(0.000) BEGIN; args=None
+(0.000) DELETE FROM "django_session" WHERE "django_session"."session_key" IN ('i4j7bxhkszib594hv2iurfml4p2w3zan'); args=(u'i4j7bxhkszib594hv2iurfml4p2w3zan',)
+"POST /money/ HTTP/1.1" 200 3308
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'haha'; args=(u'haha',)
+(0.000) SELECT "money_users"."id", "money_users"."user_name", "money_users"."balance", "money_users"."currency", "money_users"."decimal" FROM "money_users" WHERE "money_users"."user_name" = 'haha'; args=(u'haha',)
+(0.000) SELECT (1) AS "a" FROM "django_session" WHERE "django_session"."session_key" = '6911wrv7r2gm3a3arylvt0943ol138bp' LIMIT 1; args=(u'6911wrv7r2gm3a3arylvt0943ol138bp',)
+(0.000) BEGIN; args=None
+(0.001) INSERT INTO "django_session" ("session_key", "session_data", "expire_date") SELECT '6911wrv7r2gm3a3arylvt0943ol138bp', 'ZGU1MjBlMWM0MWIyZTdiMjkzOTNlNDBmZmVkMmQ1YmY5NjgwNWNjZTp7fQ==', '2017-01-29 19:14:07.133584'; args=(u'6911wrv7r2gm3a3arylvt0943ol138bp', u'ZGU1MjBlMWM0MWIyZTdiMjkzOTNlNDBmZmVkMmQ1YmY5NjgwNWNjZTp7fQ==', u'2017-01-29 19:14:07.133584')
+(0.000) BEGIN; args=None
+(0.000) UPDATE "auth_user" SET "last_login" = '2017-01-15 19:14:07.136891' WHERE "auth_user"."id" = 6; args=(u'2017-01-15 19:14:07.136891', 6)
+(0.000) SELECT "money_users"."id", "money_users"."user_name", "money_users"."balance", "money_users"."currency", "money_users"."decimal" FROM "money_users" WHERE "money_users"."id" = 8; args=(8,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'haha'; args=(u'haha',)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_expenses"."id", "money_expenses"."user_exp_id", "money_expenses"."exp_name", "money_expenses"."cat_exp_id", "money_expenses"."wal_exp_id", "money_expenses"."exp_date", "money_expenses"."exp_amount", "money_expenses"."exp_rep", "money_expenses"."exp_loan", "money_expenses"."exp_loan_to" FROM "money_expenses" WHERE "money_expenses"."user_exp_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 23; args=(23,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 24; args=(24,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_incomes"."id", "money_incomes"."user_inc_id", "money_incomes"."inc_name", "money_incomes"."wal_inc_id", "money_incomes"."cat_inc_id", "money_incomes"."inc_date", "money_incomes"."inc_amount", "money_incomes"."inc_rep", "money_incomes"."inc_debt", "money_incomes"."inc_debt_to" FROM "money_incomes" WHERE "money_incomes"."user_inc_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 22; args=(22,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 22; args=(22,)
+(0.000) SELECT "money_goals"."id", "money_goals"."user_goal_id", "money_goals"."goal_name", "money_goals"."goal_amount", "money_goals"."goal_deadline", "money_goals"."amount_now" FROM "money_goals" WHERE "money_goals"."user_goal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) BEGIN; args=None
+(0.000) UPDATE "django_session" SET "session_data" = 'ZGEyNjMxYzdkNDczMDk3NWZkYTEzYmQ0ZGFmNmNhNDNiYTA0ZjE4MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjM3ZDk5YjYzZTIwOWQ2NWU5ZGFiYjMzZjkyMzJkYmFhZGRiNGE0ZTAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI2In0=', "expire_date" = '2017-01-29 19:14:07.207711' WHERE "django_session"."session_key" = '6911wrv7r2gm3a3arylvt0943ol138bp'; args=(u'ZGEyNjMxYzdkNDczMDk3NWZkYTEzYmQ0ZGFmNmNhNDNiYTA0ZjE4MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjM3ZDk5YjYzZTIwOWQ2NWU5ZGFiYjMzZjkyMzJkYmFhZGRiNGE0ZTAiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiI2In0=', u'2017-01-29 19:14:07.207711', u'6911wrv7r2gm3a3arylvt0943ol138bp')
+"POST /money/2/ HTTP/1.1" 200 30929
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.001) 
+            SELECT name, type FROM sqlite_master
+            WHERE type in ('table', 'view') AND NOT name='sqlite_sequence'
+            ORDER BY name; args=None
+(0.000) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.000) SELECT "money_users"."id", "money_users"."user_name", "money_users"."balance", "money_users"."currency", "money_users"."decimal" FROM "money_users" WHERE "money_users"."id" = 8; args=(8,)
+(0.000) BEGIN; args=None
+(0.001) INSERT INTO "money_wallets" ("user_wal_id", "wal_name", "wal_balance") VALUES (8, 'lala', 0); args=[8, u'lala', 0]
+(0.000) SELECT "money_users"."id", "money_users"."user_name", "money_users"."balance", "money_users"."currency", "money_users"."decimal" FROM "money_users" WHERE "money_users"."id" = 8; args=(8,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'haha'; args=(u'haha',)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_expenses"."id", "money_expenses"."user_exp_id", "money_expenses"."exp_name", "money_expenses"."cat_exp_id", "money_expenses"."wal_exp_id", "money_expenses"."exp_date", "money_expenses"."exp_amount", "money_expenses"."exp_rep", "money_expenses"."exp_loan", "money_expenses"."exp_loan_to" FROM "money_expenses" WHERE "money_expenses"."user_exp_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 23; args=(23,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 24; args=(24,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_incomes"."id", "money_incomes"."user_inc_id", "money_incomes"."inc_name", "money_incomes"."wal_inc_id", "money_incomes"."cat_inc_id", "money_incomes"."inc_date", "money_incomes"."inc_amount", "money_incomes"."inc_rep", "money_incomes"."inc_debt", "money_incomes"."inc_debt_to" FROM "money_incomes" WHERE "money_incomes"."user_inc_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 22; args=(22,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 22; args=(22,)
+(0.000) SELECT "money_goals"."id", "money_goals"."user_goal_id", "money_goals"."goal_name", "money_goals"."goal_amount", "money_goals"."goal_deadline", "money_goals"."amount_now" FROM "money_goals" WHERE "money_goals"."user_goal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+"POST /money/8/ HTTP/1.1" 200 32080
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user"; args=()
+"POST /money/8/ HTTP/1.1" 302 0
+(0.000) SELECT "money_users"."id", "money_users"."user_name", "money_users"."balance", "money_users"."currency", "money_users"."decimal" FROM "money_users" WHERE "money_users"."id" = 8; args=(8,)
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'haha'; args=(u'haha',)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_expenses"."id", "money_expenses"."user_exp_id", "money_expenses"."exp_name", "money_expenses"."cat_exp_id", "money_expenses"."wal_exp_id", "money_expenses"."exp_date", "money_expenses"."exp_amount", "money_expenses"."exp_rep", "money_expenses"."exp_loan", "money_expenses"."exp_loan_to" FROM "money_expenses" WHERE "money_expenses"."user_exp_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 23; args=(23,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 24; args=(24,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_incomes"."id", "money_incomes"."user_inc_id", "money_incomes"."inc_name", "money_incomes"."wal_inc_id", "money_incomes"."cat_inc_id", "money_incomes"."inc_date", "money_incomes"."inc_amount", "money_incomes"."inc_rep", "money_incomes"."inc_debt", "money_incomes"."inc_debt_to" FROM "money_incomes" WHERE "money_incomes"."user_inc_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 22; args=(22,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 22; args=(22,)
+(0.000) SELECT "money_goals"."id", "money_goals"."user_goal_id", "money_goals"."goal_name", "money_goals"."goal_amount", "money_goals"."goal_deadline", "money_goals"."amount_now" FROM "money_goals" WHERE "money_goals"."user_goal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+"GET /money/8/ HTTP/1.1" 200 32237
+(0.000) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user"; args=()
+"POST /money/8/ HTTP/1.1" 302 0
+(0.000) SELECT "money_users"."id", "money_users"."user_name", "money_users"."balance", "money_users"."currency", "money_users"."decimal" FROM "money_users" WHERE "money_users"."id" = 8; args=(8,)
+(0.001) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."username" = 'haha'; args=(u'haha',)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_expenses"."id", "money_expenses"."user_exp_id", "money_expenses"."exp_name", "money_expenses"."cat_exp_id", "money_expenses"."wal_exp_id", "money_expenses"."exp_date", "money_expenses"."exp_amount", "money_expenses"."exp_rep", "money_expenses"."exp_loan", "money_expenses"."exp_loan_to" FROM "money_expenses" WHERE "money_expenses"."user_exp_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 23; args=(23,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 24; args=(24,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_incomes"."id", "money_incomes"."user_inc_id", "money_incomes"."inc_name", "money_incomes"."wal_inc_id", "money_incomes"."cat_inc_id", "money_incomes"."inc_date", "money_incomes"."inc_amount", "money_incomes"."inc_rep", "money_incomes"."inc_debt", "money_incomes"."inc_debt_to" FROM "money_incomes" WHERE "money_incomes"."user_inc_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 22; args=(22,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE "money_categories"."id" = 22; args=(22,)
+(0.000) SELECT "money_goals"."id", "money_goals"."user_goal_id", "money_goals"."goal_name", "money_goals"."goal_amount", "money_goals"."goal_deadline", "money_goals"."amount_now" FROM "money_goals" WHERE "money_goals"."user_goal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 0); args=(8, 0)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+(0.000) SELECT "money_categories"."id", "money_categories"."user_cat_id", "money_categories"."cat_name", "money_categories"."cat_for" FROM "money_categories" WHERE ("money_categories"."user_cat_id" = 8 AND "money_categories"."cat_for" = 1); args=(8, 1)
+(0.000) SELECT "money_wallets"."id", "money_wallets"."user_wal_id", "money_wallets"."wal_name", "money_wallets"."wal_balance" FROM "money_wallets" WHERE "money_wallets"."user_wal_id" = 8; args=(8,)
+"GET /money/8/ HTTP/1.1" 200 32237
+[15/Jan/2017 20:16:35] DEBUG [debuglog:18] Helou!

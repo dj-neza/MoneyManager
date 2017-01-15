@@ -1,0 +1,9 @@
+[15/Jan/2017 20:16:51] DEBUG [debuglog:18] Helou!
+[15/Jan/2017 20:17:04] DEBUG [debuglog:18] Helou!
+[15/Jan/2017 20:17:09] DEBUG [debuglog:34] Helou!
+[15/Jan/2017 20:17:09] DEBUG [debuglog:46] Invalid login with username haha and pass hahaha
+[15/Jan/2017 20:48:32] DEBUG [debuglog:80] Failed registration of user Sara - taken username.
+[15/Jan/2017 20:49:36] DEBUG [debuglog:80] Failed registration of user Sara - taken username.
+[15/Jan/2017 21:04:53] DEBUG [debuglog:51] Invalid login with username Sara22 and pass sara2
+[15/Jan/2017 21:05:29] DEBUG [debuglog:208] Failed change of username of user 26 - Sara22 is a taken username.
+[15/Jan/2017 21:09:37] DEBUG [debuglog:41] Invalid login with username Sara2 and pass sara2

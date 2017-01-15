@@ -11,11 +11,9 @@ import logging
 import re
 from django.contrib import messages
 from django.core.exceptions import ValidationError
-#from .service import *
-#from django.core.validators import validate_email
+from .service import *
 
-logger = logging.getLogger(__name__)
-error = ""
+logger = logging.getLogger('debuglog')
 
 def index(request):
 	if 'logout' in request.POST:
@@ -27,11 +25,9 @@ def index(request):
 	}
 	return HttpResponse(template.render(context, request))
 
-"""messages.error(request, "Ni lala")
-return HttpResponseRedirect(reverse('money:index'))"""
-
 def app(request, user_id):
 	if 'LOGIN' in request.POST:
+		"""function for loging an already existing user into application"""
 		username = request.POST['username']
 		password = request.POST['password1']
 		user = authenticate(username=username, password=password)
@@ -42,8 +38,10 @@ def app(request, user_id):
 			login(request, user)
 		else:
 			messages.error(request, "Wrong username or password.")
+			logger.debug("Invalid login with username "+username+" and pass "+password)
 			return HttpResponseRedirect(reverse('money:index'))
 	elif 'SIGNUP' in request.POST:
+		"""function for the registration of new users"""
 		username = request.POST['username']
 		email = request.POST['email2']
 		pass1 = request.POST['password2']
@@ -79,200 +77,46 @@ def app(request, user_id):
 					login(request, user)
 				else:
 					messages.error(request, "Passwords don't match.")
+					logger.debug("Failed registration of user "+username+" - passwords didn't match.")
 					return HttpResponseRedirect(reverse('money:index'))
 			else:
 				messages.error(request, "Invalid email.")
+				logger.debug("Failed registration of user "+username+" - invalid email input.")
 				return HttpResponseRedirect(reverse('money:index'))
 		else:
 			messages.error(request, "Username not free.")
+			logger.debug("Failed registration of user "+username+" - taken username.")
 			return HttpResponseRedirect(reverse('money:index'))
 	elif 'transactionSS' in request.POST: 
-		name = request.POST['expName']
-		date = request.POST['expDate']
-		amount = request.POST['amount']
-		transact_type = request.POST.get('transactions')
-		t_from = request.POST.get('t_from')
-		rep = 0
-		if 'repeat' in request.POST:
-			rep = int(request.POST.get('repeat_transaction'))
-		if (transact_type == '1'):
-			t_to = request.POST.get('t_to')
-			t1 = Incomes(user_inc = Users.objects.get(pk=user_id), inc_name=name, cat_inc= Categories.objects.get(user_cat = Users.objects.get(pk=user_id), cat_name="Transaction", cat_for=1), wal_inc=Wallets.objects.get(pk=t_from), inc_date=date, inc_amount=amount, inc_rep=rep)
-			if t1 is not None:
-				t1.save()
-			t2 = Expenses(user_exp = Users.objects.get(pk=user_id), exp_name=name, cat_exp= Categories.objects.get(user_cat = Users.objects.get(pk=user_id), cat_name="Transaction", cat_for=0), wal_exp=Wallets.objects.get(pk=t_to), exp_date=date, exp_amount=amount, exp_rep=rep)
-			if t2 is not None:
-				t2.save()
-		elif(transact_type == '2'):
-			excat = request.POST.get('excat1')
-			loaned = ""
-			if 'loan' in request.POST:
-				loaned = request.POST['loaned']
-			t = Expenses(user_exp = Users.objects.get(pk=user_id), exp_name=name, cat_exp= Categories.objects.get(pk=excat), wal_exp=Wallets.objects.get(pk=t_from), exp_date=date, exp_amount=amount, exp_rep=rep, exp_loan=True, exp_loan_to=loaned)
-			if t is not None:
-				t.save()
-			u = Users.objects.get(pk=user_id)
-			if u is not None:
-				u.balance -= int(amount)
-				u.save()
-		elif(transact_type == '3'):
-			incat = request.POST.get('incat1')
-			indebt = ""
-			if 'debt' in request.POST:
-				indebt = request.POST['indebt']
-			t = Incomes(user_inc = Users.objects.get(pk=user_id), inc_name=name, cat_inc= Categories.objects.get(pk=incat), wal_inc=Wallets.objects.get(pk=t_from), inc_date=date, inc_amount=amount, inc_rep=rep, inc_debt=True, inc_debt_to=indebt)
-			if t is not None:
-				t.save()
-			u = Users.objects.get(pk=user_id)
-			if u is not None:
-				u.balance += int(amount)
-				u.save()
+		transaction(request, user_id, 1)
 	elif 'expenseS' in request.POST: 
-		name = request.POST['expName']
-		date = request.POST['expDate']
-		amount = request.POST['amount']
-		t_from = request.POST.get('exp_wal')
-		rep = 0
-		if 'repeat' in request.POST:
-			rep = int(request.POST.get('repeatit'))
-		excat = request.POST.get('exp_cat')
-		loaned = ""
-		if 'loan' in request.POST:
-			loaned = request.POST['loaned']
-		t = Expenses(user_exp = Users.objects.get(pk=user_id), exp_name=name, cat_exp= Categories.objects.get(pk=excat), wal_exp=Wallets.objects.get(pk=t_from), exp_date=date, exp_amount=amount, exp_rep=rep, exp_loan=True, exp_loan_to=loaned)
-		if t is not None:
-			t.save()
-		u = Users.objects.get(pk=user_id)
-		if u is not None:
-			u.balance -= int(amount)
-			u.save()
+		transaction(request, user_id, 2)
 	elif 'incomeSS' in request.POST: 
-		name = request.POST['incName']
-		date = request.POST['incDate']
-		amount = request.POST['amount']
-		t_from = request.POST.get('inc_wal')
-		rep = 0
-		if 'repeat' in request.POST:
-			rep = int(request.POST.get('repeatit2'))
-		incat = request.POST.get('inc_cat')
-		indebt = ""
-		if 'debt' in request.POST:
-			indebt = request.POST['indebt']
-		t = Incomes(user_inc = Users.objects.get(pk=user_id), inc_name=name, cat_inc= Categories.objects.get(pk=incat), wal_inc=Wallets.objects.get(pk=t_from), inc_date=date, inc_amount=amount, inc_rep=rep, inc_debt=True, inc_debt_to=indebt)
-		if t is not None:
-			t.save()
-		u = Users.objects.get(pk=user_id)
-		if u is not None:
-			u.balance += int(amount)
-			u.save()
+		transaction(request, user_id, 3)
 	elif 'goalNew' in request.POST:
-		name = request.POST['goalName']
-		amount = request.POST['amount']
-		date = request.POST['goalDate']
-		g = Goals(user_goal=Users.objects.get(pk=user_id), goal_name=name, goal_amount=amount, goal_deadline=date)
-		if g is not None:
-			g.save()
+		goal_handling(request, user_id, 1)
 	elif 'goalAdd' in request.POST:
-		print(request.POST)
-		g = Goals.objects.get(pk=request.POST['goalPK'])
-		amount = request.POST['amount']
-		date = request.POST['goalDate']
-		t_from = request.POST.get('t_to')
-		if g is not None:
-			nameExp = "Savings for " + g.goal_name
-			g.amount_now += int(amount)
-			g.save()
-			e = Expenses(user_exp = Users.objects.get(pk=user_id), exp_name=nameExp, cat_exp= Categories.objects.get(user_cat = Users.objects.get(pk=user_id), cat_name="Adding goal"), wal_exp=Wallets.objects.get(pk=t_from), exp_date=date, exp_amount=amount)
-			if e is not None:
-				e.save()
-			u = Users.objects.get(pk=user_id)
-			if u is not None:
-				u.balance -= int(amount)
-				u.save()
+		goal_handling(request, user_id, 2)
 	elif 'walletADD' in request.POST:
-		name = request.POST['wallettoadd']
-		w = Wallets(user_wal = Users.objects.get(pk=user_id), wal_name=name)
-		if w is not None:
-			w.save()
+		wallet_handling(request, user_id, 1)
 	elif 'walletEDIT' in request.POST:
-		name = request.POST['wallet1']
-		w = Wallets.objects.get(pk=request.POST['walletPK'])
-		if w is not None: 
-			w.wal_name = name
-			w.save()
+		wallet_handling(request, user_id, 2)
 	elif 'walletREMOVE' in request.POST:
-		w = Wallets.objects.get(pk=request.POST['walletPK'])
-		if w is not None:
-			w.delete()
+		wallet_handling(request, user_id, 3)
 	elif 'catADD' in request.POST:
-		name = request.POST['cattoadd']
-		inc = 0
-		if 'catinc' in request.POST:
-			inc = 1
-		c = Categories(user_cat = Users.objects.get(pk=user_id), cat_name=name, cat_for=inc)
-		if c is not None:
-			c.save()
+		category_handling(request, user_id, 1)
 	elif 'catEDIT' in request.POST:
-		name = request.POST['cat1']
-		c = Categories.objects.get(pk=request.POST['categoryPK'])
-		if c is not None:
-			c.cat_name = name
-			c.save()
+		category_handling(request, user_id, 2)
 	elif 'catREMOVE' in request.POST:
-		c = Categories.objects.get(pk=request.POST['categoryPK'])
-		if c is not None:
-			c.delete()
+		category_handling(request, user_id, 3)
 	elif 'settings' in request.POST:
-		currency = request.POST.get('current')
-		u = Users.objects.get(pk=user_id)
-		if u is not None:
-			u.currency = currency
-			u.save()
+		settings(request, user_id)
 	elif 'usernameEDIT' in request.POST:
-		name = request.POST['username']
-		freeUsername = True
-		all_users = list(User.objects.all())
-		for us in all_users:
-			if (us.username == name):
-				freeUsername = False
-				break
-		if freeUsername:
-			u1 = Users.objects.get(pk=user_id)
-			if u1 is not None:
-				u = User.objects.get(username=u1.user_name)
-				if u is not None:
-					u1.user_name = name
-					u.username = name
-					u.save()
-					u1.save()
-		else:
-			messages.error(request, "The username is already taken.")
-			return HttpResponseRedirect(reverse('money:app', args=(user_id,)))
+		profile_settings(request, user_id, 1)
 	elif 'emailEDIT' in request.POST:
-		email = request.POST['e-mail']
-		if re.match("\A(?P<name>[\w\-_]+)@(?P<domain>[\w\-_]+).(?P<toplevel>[\w]+)\Z",email,re.IGNORECASE):
-			u1 = Users.objects.get(pk=user_id)
-			if u1 is not None:
-				u = User.objects.get(username=u1.user_name)
-				if u is not None:
-					u.email = email
-					u.save()
-		else:
-			messages.error(request, "Invalid email.")
-			return HttpResponseRedirect(reverse('money:app', args=(user_id,)))		
+		profile_settings(request, user_id, 2)		
 	elif 'passEDIT' in request.POST:
-		pass1 = request.POST['pass1']
-		pass2 = request.POST['pass2']
-		if pass1 == pass2:
-			u1 = Users.objects.get(pk=user_id)
-			if u1 is not None:
-				u = User.objects.get(username=u1.user_name)
-				if u is not None:
-					u.set_password(pass1)
-					u.save()
-		else:
-			messages.error(request, "Passwords don't match.")
-			return HttpResponseRedirect(reverse('money:app', args=(user_id,)))
+		profile_settings(request, user_id, 3)
 	
 	user = Users.objects.get(pk=user_id)
 	user2 = User.objects.get(username=user.user_name)
